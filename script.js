@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     const typewriterElement = document.getElementById('typewriter');
     const words = [
-        "Entrepreneurial Technologist.",
-        "Developer & Designer.",
-        "B.Tech CSE Student.",
-        "Problem Solver."
+        " Entrepreneurial Technologist.",
+        " Developer & Designer.",
+        " B.Tech CSE Student.",
+        " Problem Solver."
     ];
     let wordIndex = 0;
     let charIndex = 0;
