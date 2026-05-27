@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     const typewriterElement = document.getElementById('typewriter');
     const words = [
-        "Entrepreneurial Technologist.",
-        "Developer & Designer.",
-        "B.Tech CSE Student.",
-        "Problem Solver."
+        "an Entrepreneurial Technologist.",
+        "a Developer & Designer.",
+        "a B.Tech CSE Student.",
+        "a Problem Solver."
     ];
     let wordIndex = 0;
     let charIndex = 0;
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function type() {
         const currentWord = words[wordIndex];
-        
+
         if (isDeleting) {
             // Remove character
             typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Intersection Observer for Scroll Reveals
     // ==========================================================================
     const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right');
-    
+
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -145,18 +145,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Active Navigation Link on Scroll
     // ==========================================================================
     const sections = document.querySelectorAll('section[id]');
-    
+
     function highlightNavLink() {
         const scrollY = window.scrollY;
-        
+
         sections.forEach(current => {
             const sectionHeight = current.offsetHeight;
             const sectionTop = current.offsetTop - 120; // Offset for navbar
             const sectionId = current.getAttribute('id');
-            
+
             // Query matches navbar link corresponding to this section
             const link = document.querySelector(`.nav-link[href*="${sectionId}"]`);
-            
+
             if (link) {
                 if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                     link.classList.add('active-nav-item');
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             const name = document.getElementById('name').value;
