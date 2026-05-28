@@ -210,4 +210,44 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
     }
+
+    // ==========================================================================
+    // LinkedIn Floating Widget Toggle Logic
+    // ==========================================================================
+    const widgetTrigger = document.getElementById('widgetTrigger');
+    const widgetPanel = document.getElementById('widgetPanel');
+    const minimizeWidget = document.getElementById('minimizeWidget');
+
+    // Retrieve previous state
+    const widgetState = localStorage.getItem('linkedin-widget-state');
+
+    function showPanel() {
+        if (widgetPanel) widgetPanel.classList.add('active');
+        if (widgetTrigger) widgetTrigger.classList.remove('visible');
+        localStorage.setItem('linkedin-widget-state', 'expanded');
+    }
+
+    function minimizePanel() {
+        if (widgetPanel) widgetPanel.classList.remove('active');
+        if (widgetTrigger) widgetTrigger.classList.add('visible');
+        localStorage.setItem('linkedin-widget-state', 'minimized');
+    }
+
+    // Bind event listeners
+    if (widgetTrigger && widgetPanel && minimizeWidget) {
+        widgetTrigger.addEventListener('click', showPanel);
+        minimizeWidget.addEventListener('click', minimizePanel);
+
+        // Initial setup based on stored state
+        setTimeout(() => {
+            const currentState = localStorage.getItem('linkedin-widget-state');
+            if (currentState === 'minimized') {
+                widgetTrigger.classList.add('visible');
+            } else {
+                // Default to expanded on first load or if previously expanded
+                showPanel();
+            }
+        }, 2000); // 2 second delay for a premium entry animation
+    }
 });
+

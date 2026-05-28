@@ -1757,3 +1757,224 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* ==========================================================================
+   LinkedIn Floating Widget
+   ========================================================================== */
+
+.latest-post-widget {
+    position: fixed;
+    bottom: 90px; /* Sits above the back-to-top button which is at bottom: 30px */
+    right: 30px;
+    z-index: 998;
+    pointer-events: none; /* Let clicks pass through empty space */
+}
+
+/* Trigger Button (Minimized State) */
+.latest-post-trigger {
+    pointer-events: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.latest-post-trigger.visible {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.latest-post-trigger:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 12px 35px rgba(99, 102, 241, 0.6);
+}
+
+.latest-post-trigger .pulse-dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 14px;
+    height: 14px;
+    background-color: var(--accent-pink);
+    border-radius: 50%;
+    border: 2.5px solid var(--bg-primary);
+    box-shadow: 0 0 8px var(--accent-pink);
+    animation: blink 2s infinite;
+}
+
+/* Expanded Panel Style */
+.latest-post-panel {
+    pointer-events: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 504px;
+    height: 670px;
+    max-width: calc(100vw - 60px);
+    max-height: calc(100vh - 140px);
+    background: rgba(17, 20, 29, 0.75);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(50px) scale(0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: bottom right;
+}
+
+.latest-post-panel.active {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Widget Header */
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.widget-title-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.widget-title-area i {
+    color: #0077b5; /* LinkedIn Blue */
+    font-size: 1.2rem;
+}
+
+.widget-title-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: var(--font-headings);
+    font-weight: 700;
+}
+
+.pulse-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981; /* Green dot */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+    animation: blink 2s infinite;
+}
+
+/* Controls */
+.widget-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.widget-control-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition-fast);
+}
+
+.widget-control-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+/* Widget Content Area */
+.widget-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(10, 12, 16, 0.2);
+}
+
+/* Scrollbar styling for widget content */
+.widget-content::-webkit-scrollbar {
+    width: 6px;
+}
+.widget-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+.widget-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+.widget-content::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-violet);
+}
+
+.iframe-container {
+    width: 100%;
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background: #1d2226; /* LinkedIn dark theme placeholder */
+    position: relative;
+    min-height: 480px;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive styles for LinkedIn Widget */
+@media (max-width: 580px) {
+    .latest-post-widget {
+        bottom: 80px;
+        right: 20px;
+    }
+    
+    .latest-post-panel {
+        width: calc(100vw - 40px);
+        height: 520px;
+        max-height: calc(100vh - 120px);
+        right: 0;
+    }
+}
+

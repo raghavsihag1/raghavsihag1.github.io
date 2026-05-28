@@ -476,6 +476,36 @@
             </div>
             <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
 
+            <!-- Latest LinkedIn Update Floating Notification Panel -->
+            <div id="latestPostWidget" class="latest-post-widget">
+                <!-- Floating Trigger Badge (Minimized State) -->
+                <button id="widgetTrigger" class="latest-post-trigger" aria-label="Open latest LinkedIn post">
+                    <span class="pulse-dot"></span>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </button>
+
+                <!-- Glassmorphic Expanded Panel -->
+                <div id="widgetPanel" class="latest-post-panel">
+                    <div class="widget-header">
+                        <div class="widget-title-area">
+                            <span class="pulse-indicator"></span>
+                            <i class="fa-brands fa-linkedin"></i>
+                            <span class="widget-title-text">Latest Update</span>
+                        </div>
+                        <div class="widget-controls">
+                            <button id="minimizeWidget" class="widget-control-btn" aria-label="Minimize post">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="iframe-container">
+                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7465868619424403456" height="600" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Firebase Config -->
             <script src="firebase-config.js"></script>
             <!-- Firebase SDKs -->
