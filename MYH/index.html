@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manthan Youth Summit 2026 | Deliberate · Collaborate · Elevate</title>
+  <meta name="description" content="Manthan Youth Summit 2026 — Online Edition on 25th June 2026. Join us for an unforgettable MUN experience. Register now for UNCSW and Lok Sabha committees." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── DESIGN TOKENS ───────────────────────────────────────── */
+    :root {
+      --navy:  #0A2342;
+      --navy2: #0d2d55;
+      --navy3: #07192e;
+      --gold:  #D4AF37;
+      --gold2: #f0cc55;
+      --gold3: #a8891f;
+      --white: #F8F9FA;
+      --off-white: #e8e4d4;
+      --text-muted: #a0b4cc;
+    }
+
+    /* ── RESET ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy3);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── PETAL CANVAS ────────────────────────────────────────── */
+    #petal-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      top: -60px;
+      border-radius: 50% 0 50% 0;
+      opacity: 0;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0%   { transform: translateX(0) rotate(0deg) scale(1);   opacity: 0; top: -60px; }
+      5%   { opacity: 0.7; }
+      90%  { opacity: 0.4; }
+      100% { transform: translateX(var(--drift)) rotate(var(--spin)) scale(0.8);
+              opacity: 0; top: 110vh; }
+    }
+
+    /* ── NAVBAR ──────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 3rem;
+      background: rgba(10, 35, 66, 0.7);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+    .nav-logo span { color: var(--white); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--off-white);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      padding: 0.5rem 1.4rem;
+      background: linear-gradient(135deg in oklch, var(--gold3), var(--gold2));
+      color: var(--navy3);
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 20px rgba(212,175,55,0.3);
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(212,175,55,0.5);
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Mandala / radial glow */
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 48%, rgba(212,175,55,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 100% 80% at 50% 100%, rgba(10,35,66,0.9) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Decorative concentric rings */
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(212,175,55,0.12);
+      animation: pulse-ring linear infinite;
+    }
+    .ring:nth-child(1) { width: 320px; height: 320px; animation-duration: 8s; }
+    .ring:nth-child(2) { width: 520px; height: 520px; animation-duration: 12s; border-color: rgba(212,175,55,0.08); }
+    .ring:nth-child(3) { width: 720px; height: 720px; animation-duration: 16s; border-color: rgba(212,175,55,0.05); }
+    .ring:nth-child(4) { width: 960px; height: 960px; animation-duration: 22s; border-color: rgba(212,175,55,0.03); }
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.04); opacity: 0.5; }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1.2rem;
+      border: 1px solid rgba(212,175,55,0.5);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--gold2);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      background: rgba(212,175,55,0.06);
+      animation: fade-up 0.8s ease both;
+    }
+    .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: blink 1.5s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.2; } }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      animation: fade-up 0.9s 0.1s ease both;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(90deg in oklch, var(--gold3), var(--gold2), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-year {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 400;
+      color: var(--gold2);
+      letter-spacing: 0.6em;
+      margin-top: 0.3rem;
+      animation: fade-up 1s 0.2s ease both;
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: var(--off-white);
+      margin-top: 1.4rem;
+      letter-spacing: 0.06em;
+      animation: fade-up 1s 0.3s ease both;
+    }
+    .hero-tagline span { color: var(--gold2); }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2.5rem;
+      animation: fade-up 1s 0.4s ease both;
+    }
+    .meta-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.4rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 100px;
+      font-size: 0.88rem;
+      color: var(--off-white);
+      letter-spacing: 0.04em;
+    }
+    .meta-pill svg { width: 16px; height: 16px; fill: var(--gold2); flex-shrink: 0; }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2.8rem;
+      animation: fade-up 1s 0.5s ease both;
+    }
+    .btn-primary {
+      padding: 0.9rem 2.5rem;
+      background: linear-gradient(135deg in oklch, var(--gold3), var(--gold));
+      color: var(--navy3);
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: transform 0.22s, box-shadow 0.22s;
+      box-shadow: 0 4px 30px rgba(212,175,55,0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(212,175,55,0.55);
+    }
+    .btn-outline {
+      padding: 0.9rem 2.2rem;
+      border: 1px solid rgba(212,175,55,0.5);
+      color: var(--gold2);
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background 0.22s, color 0.22s;
+    }
+    .btn-outline:hover {
+      background: rgba(212,175,55,0.1);
+      color: var(--gold);
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* MYS Logo in hero */
+    .hero-logo {
+      width: 130px; height: 130px;
+      object-fit: contain;
+      margin-bottom: 1.2rem;
+      animation: fade-up 0.7s ease both, logo-float 5s ease-in-out infinite;
+      filter: drop-shadow(0 0 24px rgba(212,175,55,0.45));
+    }
+    @keyframes logo-float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+    @keyframes slow-spin { to { transform: rotate(360deg); } }
+
+    /* Founder section */
+    #founder { background: linear-gradient(180deg, var(--navy) 0%, var(--navy3) 100%); }
+    .founder-card {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3rem;
+      align-items: start;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 16px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .founder-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+    }
+    @media (max-width: 700px) { .founder-card { grid-template-columns: 1fr; text-align: center; } }
+    .founder-photo-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .founder-photo-frame {
+      width: 190px; height: 190px;
+      border-radius: 50%;
+      border: 2px solid rgba(212,175,55,0.5);
+      padding: 5px;
+      background: linear-gradient(145deg in oklch, #0d2d55, #07192e);
+      box-shadow: 0 0 40px rgba(212,175,55,0.18), 0 0 0 1px rgba(212,175,55,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .founder-photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px dashed rgba(212,175,55,0.3);
+      animation: slow-spin 18s linear infinite;
+    }
+    .founder-photo {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .founder-name-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold2);
+      text-align: center;
+      letter-spacing: 0.06em;
+    }
+    .founder-title-tag {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+    .founder-org-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.5rem;
+    }
+    .founder-org-tag {
+      padding: 0.2rem 0.6rem;
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 100px;
+      font-size: 0.68rem;
+      color: var(--off-white);
+    }
+
+    /* scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(212,175,55,0.5);
+      animation: fade-up 1.2s 1s ease both;
+    }
+    .scroll-hint-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(212,175,55,0.6), transparent);
+      animation: scroll-line 2s ease-in-out infinite;
+    }
+    @keyframes scroll-line {
+      0%,100% { transform: scaleY(1); opacity: 1; }
+      50%      { transform: scaleY(0.4); opacity: 0.3; }
+    }
+
+    /* ── DIVIDER ─────────────────────────────────────────────── */
+    .divider {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .divider svg { display: block; width: 100%; }
+
+    /* gold rule */
+    .gold-rule {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 1.5rem;
+    }
+
+    /* ── SECTION BASE ─────────────────────────────────────────── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 2rem;
+    }
+    .container { max-width: 1140px; margin: 0 auto; }
+    .section-eyebrow {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold2);
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+      line-height: 1.7;
+    }
+
+    /* reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── PERKS SECTION ───────────────────────────────────────── */
+    #perks { background: linear-gradient(180deg, var(--navy3) 0%, var(--navy) 100%); }
+
+    .perks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .perk-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 8px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform 0.28s, box-shadow 0.28s, border-color 0.28s;
+      cursor: default;
+    }
+    .perk-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(212,175,55,0.35);
+      border-color: rgba(212,175,55,0.4);
+    }
+    .perk-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg in oklch, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+      border: 1px solid rgba(212,175,55,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-size: 1.5rem;
+    }
+    .perk-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold2);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .perk-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* fee highlight */
+    .fee-banner {
+      margin: 4rem auto 0;
+      max-width: 700px;
+      border: 1px solid rgba(212,175,55,0.4);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg in oklch, rgba(212,175,55,0.06), rgba(10,35,66,0.5));
+      position: relative;
+      overflow: hidden;
+    }
+    .fee-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(212,175,55,0.08), transparent);
+    }
+    .fee-amount {
+      font-family: 'Cinzel', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .fee-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem; }
+    .fee-offer {
+      margin-top: 1.2rem;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 100px;
+      display: inline-block;
+      font-size: 0.83rem;
+      color: var(--gold2);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── COMMITTEES ──────────────────────────────────────────── */
+    #committees {
+      background: var(--navy3);
+    }
+    .committees-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 700px) { .committees-grid { grid-template-columns: 1fr; } }
+
+    .committee-card {
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(212,175,55,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .committee-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .committee-card.blue {
+      background: linear-gradient(145deg in oklch, rgba(12,60,120,0.5), rgba(10,35,66,0.9));
+    }
+    .committee-card.orange {
+      background: linear-gradient(145deg in oklch, rgba(120,60,10,0.4), rgba(10,35,66,0.9));
+    }
+    .committee-card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      opacity: 0.07;
+    }
+    .committee-card.blue::before { background: #3a7bd5; }
+    .committee-card.orange::before { background: #d5823a; }
+
+    .committee-tag {
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .blue .committee-tag  { background: rgba(58,123,213,0.2); color: #7aa8f0; border: 1px solid rgba(58,123,213,0.4); }
+    .orange .committee-tag { background: rgba(213,130,58,0.2); color: #f0b07a; border: 1px solid rgba(213,130,58,0.4); }
+
+    .committee-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .committee-agenda {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--off-white);
+      line-height: 1.7;
+      font-style: italic;
+    }
+    .committee-deco {
+      position: absolute;
+      bottom: 1rem; right: 1.5rem;
+      font-family: 'Cinzel', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      opacity: 0.04;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    /* ── PATRON SECTION ──────────────────────────────────────── */
+    #patron {
+      background: linear-gradient(180deg, var(--navy3) 0%, var(--navy2) 100%);
+    }
+    .patron-card {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3rem;
+      align-items: start;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 16px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 700px) {
+      .patron-card { grid-template-columns: 1fr; text-align: center; }
+    }
+    .patron-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* CSS portrait — no photo */
+    .patron-avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .avatar-ring {
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      border: 2px solid rgba(212,175,55,0.4);
+      background: linear-gradient(145deg in oklch, #0d2d55 0%, #07192e 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      box-shadow: 0 0 40px rgba(212,175,55,0.12), inset 0 0 30px rgba(0,0,0,0.4);
+    }
+    .avatar-ring::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      border: 1px dashed rgba(212,175,55,0.25);
+      animation: slow-spin 20s linear infinite;
+    }
+    .avatar-initials {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg in oklch, var(--gold3), var(--gold2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      z-index: 1;
+    }
+    .patron-name-display {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold2);
+      text-align: center;
+      letter-spacing: 0.06em;
+    }
+    .patron-title-display {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .patron-body {}
+    .patron-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold3);
+      margin-bottom: 0.5rem;
+    }
+    .patron-full-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .patron-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--gold2);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    .patron-bio-block {
+      margin-bottom: 1.4rem;
+    }
+    .patron-bio-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold2);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .patron-bio-heading::before {
+      content: '';
+      display: inline-block;
+      width: 20px; height: 1px;
+      background: var(--gold3);
+    }
+    .patron-bio-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .patron-skills-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+    .patron-skills-list li {
+      padding: 0.25rem 0.8rem;
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      color: var(--off-white);
+    }
+
+    /* ── CONTACT ─────────────────────────────────────────────── */
+    #contact {
+      background: var(--navy3);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 780px;
+      margin: 0 auto 3rem;
+    }
+    @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    .contact-card {
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 10px;
+      padding: 1.8rem 1.2rem;
+      text-align: center;
+      background: rgba(255,255,255,0.02);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .contact-card:hover { border-color: rgba(212,175,55,0.45); transform: translateY(-4px); }
+    .contact-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg in oklch, rgba(212,175,55,0.2), rgba(212,175,55,0.05));
+      border: 1px solid rgba(212,175,55,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 0.9rem;
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold2);
+    }
+    .contact-person { font-family: 'Cinzel', serif; font-size: 0.92rem; color: var(--white); margin-bottom: 0.3rem; }
+    .contact-phone { font-size: 0.83rem; color: var(--gold2); }
+    .contact-insta {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .insta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.8rem;
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 100px;
+      color: var(--gold2);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .insta-link:hover { background: rgba(212,175,55,0.08); border-color: rgba(212,175,55,0.6); }
+
+    /* ── REGISTER CTA ─────────────────────────────────────────── */
+    #register {
+      background: linear-gradient(180deg, var(--navy3) 0%, var(--navy) 100%);
+      padding: 7rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #register::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212,175,55,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .register-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .register-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+    .seats-warning {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background: rgba(212,175,55,0.1);
+      border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 100px;
+      color: var(--gold2);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+    .register-btn {
+      display: inline-block;
+      padding: 1.1rem 3.5rem;
+      background: linear-gradient(135deg in oklch, var(--gold3), var(--gold2));
+      color: var(--navy3);
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      box-shadow: 0 6px 40px rgba(212,175,55,0.4);
+      transition: transform 0.25s, box-shadow 0.25s;
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+    .register-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 14px 60px rgba(212,175,55,0.6);
+    }
+    @keyframes glow-pulse {
+      0%,100% { box-shadow: 0 6px 40px rgba(212,175,55,0.4); }
+      50%      { box-shadow: 0 8px 55px rgba(212,175,55,0.65); }
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+    footer {
+      background: var(--navy3);
+      border-top: 1px solid rgba(212,175,55,0.12);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--gold2);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .footer-copy { font-size: 0.78rem; color: rgba(160,180,204,0.5); }
+
+    /* ── CSS FLOWER DECORATIONS ──────────────────────────────── */
+    .flower {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.12;
+    }
+    .flower svg { width: 100%; height: 100%; }
+
+    /* ── FLOATING STARS ──────────────────────────────────────── */
+    .star-field {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: twinkle ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%,100% { opacity: 0.05; transform: scale(1); }
+      50%      { opacity: 0.5;  transform: scale(1.4); }
+    }
+
+    /* ── RESPONSIVE NAV HIDE ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      nav { padding: 1rem 1.5rem; }
+      .patron-card { padding: 2rem 1.2rem; }
+    }
+
+    /* ── TIMELINE / PROCESS ──────────────────────────────────── */
+    .offer-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+    .offer-card {
+      flex: 0 0 auto;
+      width: 220px;
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 10px;
+      padding: 1.6rem 1.2rem;
+      text-align: center;
+      background: rgba(255,255,255,0.02);
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold3), var(--gold2));
+    }
+    .offer-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .offer-text { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+  </style>
+</head>
+<body>
+
+  <!-- FALLING PETALS CANVAS -->
+  <div id="petal-canvas" aria-hidden="true"></div>
+
+  <!-- ══ NAV ══════════════════════════════════════════════════ -->
+  <nav aria-label="Main navigation">
+    <div class="nav-logo">MYS <span>2026</span></div>
+    <ul class="nav-links">
+      <li><a href="#perks">Perks</a></li>
+      <li><a href="#committees">Committees</a></li>
+      <li><a href="#patron">Patron</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://forms.gle/bDinhjYdcj6gEg7M9" target="_blank" rel="noopener" class="nav-cta" id="nav-register-btn">Register Now</a>
+  </nav>
+
+  <!-- ══ HERO ══════════════════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="star-field" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <!-- Concentric rings -->
+    <div class="ring" aria-hidden="true"></div>
+    <div class="ring" aria-hidden="true"></div>
+    <div class="ring" aria-hidden="true"></div>
+    <div class="ring" aria-hidden="true"></div>
+
+    <!-- Flower decor top-left -->
+    <div class="flower" style="left:-60px; top:80px; width:220px; height:220px;" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g opacity="1">
+          <ellipse cx="100" cy="55" rx="22" ry="45" fill="#D4AF37" transform="rotate(0 100 100)"/>
+          <ellipse cx="100" cy="55" rx="22" ry="45" fill="#D4AF37" transform="rotate(45 100 100)"/>
+          <ellipse cx="100" cy="55" rx="22" ry="45" fill="#D4AF37" transform="rotate(90 100 100)"/>
+          <ellipse cx="100" cy="55" rx="22" ry="45" fill="#D4AF37" transform="rotate(135 100 100)"/>
+          <ellipse cx="100" cy="55" rx="22" ry="45" fill="#D4AF37" transform="rotate(180 100 100)"/>
+          <ellipse cx="100" cy="55" rx="22" ry="45" fill="#D4AF37" transform="rotate(225 100 100)"/>
+          <ellipse cx="100" cy="55" rx="22" ry="45" fill="#D4AF37" transform="rotate(270 100 100)"/>
+          <ellipse cx="100" cy="55" rx="22" ry="45" fill="#D4AF37" transform="rotate(315 100 100)"/>
+          <circle cx="100" cy="100" r="22" fill="#0A2342"/>
+          <circle cx="100" cy="100" r="14" fill="#D4AF37"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Flower decor top-right -->
+    <div class="flower" style="right:-40px; top:100px; width:180px; height:180px; opacity:0.09;" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="50" rx="18" ry="40" fill="#D4AF37" transform="rotate(0 100 100)"/>
+        <ellipse cx="100" cy="50" rx="18" ry="40" fill="#D4AF37" transform="rotate(60 100 100)"/>
+        <ellipse cx="100" cy="50" rx="18" ry="40" fill="#D4AF37" transform="rotate(120 100 100)"/>
+        <ellipse cx="100" cy="50" rx="18" ry="40" fill="#D4AF37" transform="rotate(180 100 100)"/>
+        <ellipse cx="100" cy="50" rx="18" ry="40" fill="#D4AF37" transform="rotate(240 100 100)"/>
+        <ellipse cx="100" cy="50" rx="18" ry="40" fill="#D4AF37" transform="rotate(300 100 100)"/>
+        <circle cx="100" cy="100" r="20" fill="#0A2342"/>
+        <circle cx="100" cy="100" r="11" fill="#D4AF37"/>
+      </svg>
+    </div>
+
+    <!-- MYS Logo -->
+    <img src="PHOTO-2026-06-01-20-39-07-removebg-preview.png" alt="Manthan Youth Summit Logo" class="hero-logo" />
+
+    <div class="hero-badge" aria-label="Online event">
+      <span class="badge-dot"></span>
+      Online Edition &nbsp;·&nbsp; 25th June 2026
+    </div>
+
+    <h1 class="hero-title" id="hero-heading">
+      Manthan <span class="highlight">Youth</span><br/>Summit
+    </h1>
+    <div class="hero-year" aria-label="2026">2 0 2 6</div>
+
+    <p class="hero-tagline">
+      <span>Deliberate</span> &nbsp;·&nbsp; <span>Collaborate</span> &nbsp;·&nbsp; <span>Elevate</span>
+    </p>
+
+    <div class="hero-meta" role="list">
+      <div class="meta-pill" role="listitem">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 2v3M16 2v3M3 8h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="none" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round"/></svg>
+        25th June 2026
+      </div>
+      <div class="meta-pill" role="listitem">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="#D4AF37" stroke-width="1.8"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" fill="none" stroke="#D4AF37" stroke-width="1.8"/></svg>
+        Online Mode
+      </div>
+      <div class="meta-pill" role="listitem">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#D4AF37"/></svg>
+        ₹8,000+ Prize Pool
+      </div>
+      <div class="meta-pill" role="listitem">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="#D4AF37" stroke-width="1.8"/><path d="M8 21h8M12 17v4" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Delegate Fee: ₹800
+      </div>
+    </div>
+
+    <div class="hero-cta-group">
+      <a href="https://forms.gle/bDinhjYdcj6gEg7M9" target="_blank" rel="noopener" class="btn-primary" id="hero-register-btn">Register Now →</a>
+      <a href="#committees" class="btn-outline" id="hero-explore-btn">Explore Committees</a>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="scroll-hint-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ══ PERKS ══════════════════════════════════════════════════ -->
+  <section id="perks" aria-labelledby="perks-heading">
+    <div class="container">
+      <div class="section-eyebrow">Why Join Us</div>
+      <h2 class="section-title" id="perks-heading">What You'll Gain</h2>
+      <div class="gold-rule"></div>
+      <p class="section-sub">An extraordinary conference packed with real-world diplomacy experience, recognition, and rewards.</p>
+
+      <div class="perks-grid">
+        <div class="perk-card reveal">
+          <div class="perk-icon" aria-hidden="true">🏆</div>
+          <div class="perk-title">₹8,000+ Cash Prize</div>
+          <div class="perk-desc">Compete for a generous cash prize pool recognising outstanding delegates.</div>
+        </div>
+        <div class="perk-card reveal">
+          <div class="perk-icon" aria-hidden="true">🌍</div>
+          <div class="perk-title">Diplomacy Experience</div>
+          <div class="perk-desc">Engage in real UN-style debate, negotiation, and resolution drafting.</div>
+        </div>
+        <div class="perk-card reveal">
+          <div class="perk-icon" aria-hidden="true">🥇</div>
+          <div class="perk-title">Best Delegate Award</div>
+          <div class="perk-desc">Earn the most coveted distinction in Model United Nations.</div>
+        </div>
+        <div class="perk-card reveal">
+          <div class="perk-icon" aria-hidden="true">📜</div>
+          <div class="perk-title">Certificates for All</div>
+          <div class="perk-desc">Every participant receives a verified certificate of participation.</div>
+        </div>
+        <div class="perk-card reveal">
+          <div class="perk-icon" aria-hidden="true">🎓</div>
+          <div class="perk-title">Exclusive Training</div>
+          <div class="perk-desc">Access expert-led sessions on public speaking, diplomacy & research.</div>
+        </div>
+        <div class="perk-card reveal">
+          <div class="perk-icon" aria-hidden="true">✨</div>
+          <div class="perk-title">LinkedIn Recognition</div>
+          <div class="perk-desc">Personalised recognition on LinkedIn &amp; Instagram by MYS official pages.</div>
+        </div>
+      </div>
+
+      <!-- Fee banner -->
+      <div class="fee-banner reveal">
+        <div class="fee-amount">₹800</div>
+        <div class="fee-label">Delegate Registration Fee</div>
+        <div class="offer-cards">
+          <div class="offer-card">
+            <div class="offer-num">3</div>
+            <div class="offer-text">Paid delegates = <strong style="color:var(--gold2)">50% OFF</strong> your registration</div>
+          </div>
+          <div class="offer-card">
+            <div class="offer-num">5</div>
+            <div class="offer-text">Paid delegates = <strong style="color:var(--gold2)">ZERO FEE</strong> for you</div>
+          </div>
+        </div>
+        <div class="fee-offer">🎁 Bring 3 Delegates = 50% Off &nbsp;|&nbsp; Bring 5 = FREE Entry</div>
+      </div>
+    </div>
+
+    <!-- Flower deco right side -->
+    <div class="flower" style="right:-30px; bottom:60px; width:200px; height:200px; opacity:0.07;" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <ellipse cx="100" cy="48" rx="20" ry="44" fill="#D4AF37" transform="rotate(0 100 100)"/>
+        <ellipse cx="100" cy="48" rx="20" ry="44" fill="#D4AF37" transform="rotate(51 100 100)"/>
+        <ellipse cx="100" cy="48" rx="20" ry="44" fill="#D4AF37" transform="rotate(102 100 100)"/>
+        <ellipse cx="100" cy="48" rx="20" ry="44" fill="#D4AF37" transform="rotate(153 100 100)"/>
+        <ellipse cx="100" cy="48" rx="20" ry="44" fill="#D4AF37" transform="rotate(204 100 100)"/>
+        <ellipse cx="100" cy="48" rx="20" ry="44" fill="#D4AF37" transform="rotate(255 100 100)"/>
+        <ellipse cx="100" cy="48" rx="20" ry="44" fill="#D4AF37" transform="rotate(306 100 100)"/>
+        <circle cx="100" cy="100" r="18" fill="#07192e"/>
+        <circle cx="100" cy="100" r="10" fill="#D4AF37"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══ COMMITTEES ══════════════════════════════════════════════ -->
+  <section id="committees" aria-labelledby="committees-heading">
+    <div class="container">
+      <div class="section-eyebrow">Committees</div>
+      <h2 class="section-title" id="committees-heading">Choose Your Arena</h2>
+      <div class="gold-rule"></div>
+      <p class="section-sub">Two powerful committees, two defining global debates. Where will you make your mark?</p>
+
+      <div class="committees-grid">
+        <!-- UNCSW -->
+        <div class="committee-card blue reveal" id="uncsw-card">
+          <div class="committee-tag">Committee I</div>
+          <div class="committee-name">UNCSW</div>
+          <div class="committee-agenda">
+            "Evaluating Legislative &amp; Structural Mechanisms to Accelerate Women's Political Parity and Economic Inclusivity, with Special Emphasis on Overcoming Constitutional Roadblocks to Gender-Based Quotas."
+          </div>
+          <div class="committee-deco">UN</div>
+        </div>
+
+        <!-- LOK SABHA -->
+        <div class="committee-card orange reveal" id="loksabha-card">
+          <div class="committee-tag">Committee II</div>
+          <div class="committee-name">Lok Sabha</div>
+          <div class="committee-agenda">
+            "Deliberation on Electoral Reforms in India with Special Emphasis on the Constitutional, Federal, and Logistical Feasibility of Implementing 'One Nation, One Election.'"
+          </div>
+          <div class="committee-deco">LS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PATRON ══════════════════════════════════════════════════ -->
+  <section id="patron" aria-labelledby="patron-heading">
+    <div class="container">
+      <div class="section-eyebrow">Distinguished Patron</div>
+      <h2 class="section-title" id="patron-heading">Meet Our Patron</h2>
+      <div class="gold-rule"></div>
+      <p class="section-sub">A visionary leader in global education, leadership facilitation, and cross-cultural mentorship.</p>
+
+      <div class="patron-card reveal">
+        <div class="patron-avatar">
+          <div class="avatar-ring" aria-hidden="true">
+            <div class="avatar-initials">WO</div>
+          </div>
+          <div class="patron-name-display">Mr. Wemsley Okuku</div>
+          <div class="patron-title-display">International Educator &amp;<br/>Leadership Facilitator</div>
+        </div>
+
+        <div class="patron-body">
+          <div class="patron-label">Our Distinguished Patron</div>
+          <h3 class="patron-full-name">Mr. Wemsley Okuku</h3>
+          <p class="patron-role">International Educator, Leadership Facilitator &amp; Cross-Cultural Mentor</p>
+
+          <div class="patron-bio-block">
+            <div class="patron-bio-heading">Academic &amp; Professional Leadership</div>
+            <p class="patron-bio-text">
+              With a career spanning over a decade in the premium international education sector, Mr. Okuku has served as Head of School and Principal, driving implementation of global curricula — specialising in the International Baccalaureate (IB) framework. He ensures the next generation is equipped to face a rapidly changing global landscape.
+            </p>
+          </div>
+
+          <div class="patron-bio-block">
+            <div class="patron-bio-heading">Expert Soft Skills &amp; Leadership Facilitator</div>
+            <p class="patron-bio-text">Mr. Okuku has trained thousands of students and professionals in critical modern competencies:</p>
+            <ul class="patron-skills-list" aria-label="Areas of expertise">
+              <li>Advanced Public Speaking &amp; Rhetoric</li>
+              <li>Cross-Cultural Communication</li>
+              <li>Global Diplomacy</li>
+              <li>Emotional Intelligence</li>
+              <li>Adaptive Leadership</li>
+              <li>Intercultural Conflict Resolution</li>
+            </ul>
+          </div>
+
+          <div class="patron-bio-block">
+            <div class="patron-bio-heading">Champion of Cross-Cultural Unity</div>
+            <p class="patron-bio-text">
+              Originally from Kenya and deeply rooted in the vibrant culture of Punjab, India, Mr. Okuku is a living embodiment of global citizenship — inspiring hundreds of thousands to embrace unity in diversity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lotus deco left -->
+    <div class="flower" style="left:20px; top:50%; transform:translateY(-50%); width:160px; height:160px; opacity:0.07;" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(0 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(30 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(60 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(90 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(120 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(150 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(180 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(210 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(240 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(270 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(300 100 100)"/>
+        <ellipse cx="100" cy="60" rx="14" ry="36" fill="#D4AF37" transform="rotate(330 100 100)"/>
+        <circle cx="100" cy="100" r="16" fill="#07192e"/>
+        <circle cx="100" cy="100" r="9" fill="#D4AF37"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══ FOUNDER ══════════════════════════════════════════════════ -->
+  <section id="founder" aria-labelledby="founder-heading">
+    <div class="container">
+      <div class="section-eyebrow">Leadership</div>
+      <h2 class="section-title" id="founder-heading">Meet Our Founder</h2>
+      <div class="gold-rule"></div>
+      <p class="section-sub">A dynamic youth leader and social activist powering the next generation of changemakers.</p>
+
+      <div class="founder-card reveal">
+        <div class="founder-photo-wrap">
+          <div class="founder-photo-frame">
+            <img src="PHOTO-2026-06-01-20-20-06.jpg" alt="Rekha Kumari — Founder, Manthan Youth Summit" class="founder-photo" />
+          </div>
+          <div class="founder-name-tag">Rekha Kumari</div>
+          <div class="founder-title-tag">Founder &amp; Youth Leader<br/>MUN Organiser · UNICEF U-Report</div>
+          <div class="founder-org-tags">
+            <span class="founder-org-tag">Chandigarh</span>
+            <span class="founder-org-tag">Delhi</span>
+            <span class="founder-org-tag">Goa</span>
+            <span class="founder-org-tag">Hyderabad</span>
+            <span class="founder-org-tag">Punjab</span>
+          </div>
+        </div>
+
+        <div class="patron-body">
+          <div class="patron-label">Our Founder</div>
+          <h3 class="patron-full-name">Rekha Kumari</h3>
+          <p class="patron-role">Dynamic Youth Leader, Social Activist &amp; MUN Organiser</p>
+
+          <div class="patron-bio-block">
+            <div class="patron-bio-heading">7 Years of MUN Excellence</div>
+            <p class="patron-bio-text">
+              Rekha Kumari is a dynamic youth leader and social activist heavily involved in civic engagement and leadership development across Chandigarh, Delhi, Goa, Hyderabad and Punjab. With 7 years of MUN experience, she has been part of renowned organisations including The National Youth Parliament (Goa), Uthan Youth Parliament (Delhi), Unnati, DMUN, Muskurahat Foundation, Chandigarh Youth Circuit, and the National Youth Parliament.
+            </p>
+          </div>
+
+          <div class="patron-bio-block">
+            <div class="patron-bio-heading">Civic Leadership &amp; Advocacy</div>
+            <p class="patron-bio-text">
+              She plays a vital role in organising simulated legislative assemblies that train young minds in public policy, diplomacy, and political debate. As a <strong style="color:var(--gold2)">UNICEF U-Report Voice of Youth</strong> advocate, she champions youth-led solutions to regional and national issues.
+            </p>
+          </div>
+
+          <div class="patron-bio-block">
+            <div class="patron-bio-heading">Writer · Youth Ki Awaaz</div>
+            <p class="patron-bio-text">
+              She shares her perspectives on social and environmental matters as a writer for <strong style="color:var(--gold2)">Youth Ki Awaaz</strong>, solidifying her reputation as an impactful advocate for youth empowerment and active citizenship.
+            </p>
+          </div>
+
+          <ul class="patron-skills-list" aria-label="Organisations">
+            <li>National Youth Parliament, Goa</li>
+            <li>Uthan Youth Parliament, Delhi</li>
+            <li>DMUN</li>
+            <li>Muskurahat Foundation</li>
+            <li>Chandigarh Youth Circuit</li>
+            <li>UNICEF U-Report</li>
+            <li>Youth Ki Awaaz</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══════════════════════════════════════════════════ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="section-eyebrow">Get in Touch</div>
+      <h2 class="section-title" id="contact-heading">Contact Us</h2>
+      <div class="gold-rule"></div>
+
+      <div class="contact-grid">
+        <div class="contact-card reveal" id="contact-prabhnoor">
+          <div class="contact-avatar" aria-hidden="true">P</div>
+          <div class="contact-person">Mr. Prabhnoor</div>
+          <div class="contact-phone">+91 72240 35559</div>
+        </div>
+        <div class="contact-card reveal" id="contact-aanya">
+          <div class="contact-avatar" aria-hidden="true">A</div>
+          <div class="contact-person">Ms. Aanya</div>
+          <div class="contact-phone">+91 96547 55377</div>
+        </div>
+        <div class="contact-card reveal" id="contact-anup">
+          <div class="contact-avatar" aria-hidden="true">A</div>
+          <div class="contact-person">Mr. Anup</div>
+          <div class="contact-phone">+91 73187 05634</div>
+        </div>
+      </div>
+
+      <div class="contact-insta">
+        <a href="https://instagram.com/manthan.youth.summit" target="_blank" rel="noopener" class="insta-link" id="instagram-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="#D4AF37" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4" stroke="#D4AF37" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="#D4AF37"/>
+          </svg>
+          @manthan.youth.summit
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ REGISTER CTA ══════════════════════════════════════════ -->
+  <section id="register" aria-labelledby="register-heading">
+    <!-- Flower decorations -->
+    <div class="flower" style="left:5%; top:50%; transform:translateY(-50%); width:250px; height:250px; opacity:0.06;" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(0 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(45 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(90 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(135 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(180 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(225 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(270 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(315 100 100)"/>
+        <circle cx="100" cy="100" r="20" fill="#07192e"/>
+        <circle cx="100" cy="100" r="12" fill="#D4AF37"/>
+      </svg>
+    </div>
+    <div class="flower" style="right:5%; top:50%; transform:translateY(-50%); width:250px; height:250px; opacity:0.06;" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(0 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(45 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(90 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(135 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(180 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(225 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(270 100 100)"/>
+        <ellipse cx="100" cy="48" rx="22" ry="48" fill="#D4AF37" transform="rotate(315 100 100)"/>
+        <circle cx="100" cy="100" r="20" fill="#07192e"/>
+        <circle cx="100" cy="100" r="12" fill="#D4AF37"/>
+      </svg>
+    </div>
+
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="section-eyebrow">Seats Are Filling Fast</div>
+      <h2 class="register-title" id="register-heading">Ready to Take the Stage?</h2>
+      <p class="register-sub">Join hundreds of young leaders at Manthan Youth Summit 2026</p>
+      <div class="seats-warning">⚡ Limited Seats Available</div>
+      <br/>
+      <a href="https://forms.gle/bDinhjYdcj6gEg7M9" target="_blank" rel="noopener" class="register-btn" id="final-register-btn">
+        Register Now →
+      </a>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-logo">MANTHAN YOUTH SUMMIT</div>
+    <p class="footer-copy">© 2026 Manthan Youth Summit. All Rights Reserved. &nbsp;·&nbsp; Online Edition &nbsp;·&nbsp; 25th June 2026</p>
+  </footer>
+
+  <!-- ══ JAVASCRIPT ══════════════════════════════════════════════ -->
+  <script>
+    /* ── FALLING PETALS ─────────────────────────────────────── */
+    (function () {
+      const canvas = document.getElementById('petal-canvas');
+      const colors = [
+        'rgba(212,175,55,0.7)',
+        'rgba(240,204,85,0.6)',
+        'rgba(248,249,250,0.4)',
+        'rgba(168,137,31,0.5)',
+        'rgba(212,175,55,0.4)',
+      ];
+
+      function createPetal() {
+        const el = document.createElement('div');
+        el.className = 'petal';
+
+        const size = 8 + Math.random() * 18;
+        const left = Math.random() * 110 - 5;
+        const delay = Math.random() * 18;
+        const duration = 10 + Math.random() * 14;
+        const drift = (Math.random() - 0.5) * 300;
+        const spin = (Math.random() - 0.5) * 720;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const rx = 40 + Math.random() * 40;
+
+        el.style.cssText = `
+          left: ${left}%;
+          width: ${size}px;
+          height: ${size * 1.4}px;
+          background: ${color};
+          border-radius: ${rx}% ${100 - rx}% ${rx}% ${100 - rx}%;
+          animation-duration: ${duration}s;
+          animation-delay: ${delay}s;
+          --drift: ${drift}px;
+          --spin: ${spin}deg;
+        `;
+        canvas.appendChild(el);
+      }
+
+      for (let i = 0; i < 55; i++) createPetal();
+    })();
+
+    /* ── STAR FIELD ─────────────────────────────────────────── */
+    (function () {
+      const hero = document.querySelector('#hero');
+      const sf = hero.querySelector('.star-field');
+      for (let i = 0; i < 60; i++) {
+        const s = document.createElement('div');
+        s.className = 'star';
+        const sz = 1 + Math.random() * 2.5;
+        s.style.cssText = `
+          width: ${sz}px; height: ${sz}px;
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+          animation-duration: ${2 + Math.random() * 4}s;
+          animation-delay: ${Math.random() * 4}s;
+        `;
+        sf.appendChild(s);
+      }
+    })();
+
+    /* ── SCROLL REVEAL ──────────────────────────────────────── */
+    (function () {
+      const targets = document.querySelectorAll('.reveal');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            // stagger siblings
+            const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
+            const idx = siblings.indexOf(e.target);
+            setTimeout(() => {
+              e.target.classList.add('visible');
+            }, idx * 80);
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      targets.forEach(t => obs.observe(t));
+    })();
+
+    /* ── REDUCED MOTION SUPPORT ─────────────────────────────── */
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.petal').forEach(p => {
+        p.style.animationDuration = '0.01ms';
+        p.style.animationIterationCount = '1';
+      });
+    }
+  </script>
+</body>
+</html>

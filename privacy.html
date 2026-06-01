@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Raghav Sihag</title>
+    <meta name="description" content="Privacy Policy for raghavsihag1.github.io – Learn how we collect, use, and protect your information, including details about Google AdSense advertising.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7287159043409706" crossorigin="anonymous"></script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-primary: #0a0f1e;
+            --bg-secondary: #0d1526;
+            --surface: rgba(255,255,255,0.04);
+            --border: rgba(255,255,255,0.08);
+            --text-primary: #e8eaf6;
+            --text-secondary: #8892b0;
+            --accent-cyan: #64ffda;
+            --accent-blue: #4f8ef7;
+            --gradient-primary: linear-gradient(135deg, #64ffda 0%, #4f8ef7 100%);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Background decoration */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(79,142,247,0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(100,255,218,0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 15, 30, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+        .navbar-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+        .logo span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .back-link {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-cyan); }
+
+        /* Main Content */
+        .page-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            background: rgba(100,255,218,0.08);
+            border: 1px solid rgba(100,255,218,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            margin-bottom: 1.2rem;
+        }
+        .page-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+        .page-title span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .page-meta strong { color: var(--text-primary); }
+
+        /* Content Sections */
+        .content-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.3s;
+        }
+        .content-section:hover { border-color: rgba(100,255,218,0.15); }
+
+        .section-heading {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .section-heading i {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1rem;
+        }
+
+        p { color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem; }
+        p:last-child { margin-bottom: 0; }
+        p a { color: var(--accent-cyan); text-decoration: none; border-bottom: 1px solid rgba(100,255,218,0.3); transition: border-color 0.2s; }
+        p a:hover { border-color: var(--accent-cyan); }
+
+        ul, ol { padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.95rem; }
+        li { margin-bottom: 0.4rem; }
+
+        .highlight-box {
+            background: rgba(79,142,247,0.08);
+            border: 1px solid rgba(79,142,247,0.2);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+        .highlight-box p { margin: 0; color: var(--text-primary); font-size: 0.9rem; }
+
+        /* Footer */
+        .page-footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .page-footer p { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin: 0 0.75rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--accent-cyan); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">RAGHAV<span>SIHAG</span></a>
+            <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="page-header">
+            <div class="page-badge"><i class="fa-solid fa-shield-halved"></i> Legal</div>
+            <h1 class="page-title">Privacy <span>Policy</span></h1>
+            <p class="page-meta">Last updated: <strong>May 29, 2026</strong> &nbsp;·&nbsp; Effective for raghavsihag1.github.io</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-circle-info"></i> Introduction</h2>
+            <p>Welcome to the personal portfolio website of <strong>Raghav Sihag</strong> ("I", "me", or "my"), accessible at <a href="https://raghavsihag1.github.io" target="_blank">raghavsihag1.github.io</a>. This Privacy Policy explains how information is collected, used, and disclosed when you visit this website.</p>
+            <p>By using this website, you agree to the collection and use of information in accordance with this policy. This policy complies with the requirements of Google AdSense and applicable privacy regulations including GDPR.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-database"></i> Information We Collect</h2>
+            <p>This website may collect the following types of information:</p>
+            <ul>
+                <li><strong>Usage Data:</strong> Automatically collected information such as your IP address, browser type, browser version, pages visited, time and date of visit, and time spent on pages.</li>
+                <li><strong>Cookies and Tracking Data:</strong> Cookies and similar tracking technologies are used by third-party services (such as Google AdSense) to serve advertisements based on your prior visits to this and other websites.</li>
+                <li><strong>Contact Form Data:</strong> If you submit the contact form, your name, email address, and message content are collected to respond to your inquiry.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-brands fa-google"></i> Google AdSense & Third-Party Advertising</h2>
+            <div class="highlight-box">
+                <p>This website uses Google AdSense, a third-party advertising service by Google LLC. Google may use cookies to serve ads based on your visits to this and other websites.</p>
+            </div>
+            <p>Google's use of the DoubleClick DART cookie enables it to serve ads to users based on their visit to this site and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google ad and content network Privacy Policy</a>.</p>
+            <p>Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on this site. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of advertising campaigns and/or to personalize advertising content.</p>
+            <p>You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google's Ad Settings</a> or the <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">Network Advertising Initiative opt-out page</a>.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-cookie-bite"></i> Cookies</h2>
+            <p>Cookies are small data files stored on your device. This website uses cookies for the following purposes:</p>
+            <ul>
+                <li><strong>Essential Cookies:</strong> Required for the basic operation of the site (e.g., remembering your cookie consent preference).</li>
+                <li><strong>Analytics Cookies:</strong> Used by Google Analytics (if active) to understand how visitors interact with the website anonymously.</li>
+                <li><strong>Advertising Cookies:</strong> Used by Google AdSense to serve relevant advertisements. These may include the Google DoubleClick DART cookie.</li>
+            </ul>
+            <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, some portions of this site may not function properly.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-gavel"></i> Your Rights (GDPR / CCPA)</h2>
+            <p>Depending on your location, you may have certain rights regarding your personal data:</p>
+            <ul>
+                <li><strong>Right to Access:</strong> You can request a copy of the personal data held about you.</li>
+                <li><strong>Right to Rectification:</strong> You can request correction of inaccurate data.</li>
+                <li><strong>Right to Erasure:</strong> You can request deletion of your data under certain conditions.</li>
+                <li><strong>Right to Object:</strong> You can object to the processing of your data for marketing or advertising purposes.</li>
+                <li><strong>Right to Withdraw Consent:</strong> You can withdraw consent for cookie-based data collection at any time via the cookie banner on this site.</li>
+            </ul>
+            <p>To exercise these rights, contact me at <a href="mailto:rgvsihag@gmail.com">rgvsihag@gmail.com</a>.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-link"></i> Third-Party Links</h2>
+            <p>This website contains links to external sites (e.g., LinkedIn, GitHub). I am not responsible for the privacy practices or content of these external sites. I encourage you to review the privacy policy of every site you visit.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-child-reaching"></i> Children's Privacy</h2>
+            <p>This website does not knowingly collect personal information from children under the age of 13. If you are a parent or guardian and believe your child has provided personal information, please contact me at <a href="mailto:rgvsihag@gmail.com">rgvsihag@gmail.com</a> so I can take appropriate action.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-rotate"></i> Changes to This Policy</h2>
+            <p>This Privacy Policy may be updated periodically. Any changes will be posted on this page with an updated "Last updated" date. You are advised to review this policy regularly.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-envelope"></i> Contact</h2>
+            <p>If you have any questions about this Privacy Policy, please contact:</p>
+            <p><strong>Raghav Sihag</strong><br>
+            Email: <a href="mailto:rgvsihag@gmail.com">rgvsihag@gmail.com</a><br>
+            Location: New Delhi, India</p>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <p>&copy; 2026 Raghav Sihag. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Portfolio</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+        </div>
+    </footer>
+</body>
+</html>

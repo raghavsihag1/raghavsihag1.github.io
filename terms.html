@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Raghav Sihag</title>
+    <meta name="description" content="Terms and Conditions for raghavsihag1.github.io – Rules, intellectual property rights, and disclaimers governing the use of this website.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7287159043409706" crossorigin="anonymous"></script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-primary: #0a0f1e;
+            --surface: rgba(255,255,255,0.04);
+            --border: rgba(255,255,255,0.08);
+            --text-primary: #e8eaf6;
+            --text-secondary: #8892b0;
+            --accent-cyan: #64ffda;
+            --accent-blue: #4f8ef7;
+            --gradient-primary: linear-gradient(135deg, #64ffda 0%, #4f8ef7 100%);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(100,255,218,0.07) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(79,142,247,0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 15, 30, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+        .navbar-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+        .logo span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .back-link {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-cyan); }
+
+        .page-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            background: rgba(79,142,247,0.08);
+            border: 1px solid rgba(79,142,247,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            margin-bottom: 1.2rem;
+        }
+        .page-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+        .page-title span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .page-meta strong { color: var(--text-primary); }
+
+        .content-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.3s;
+        }
+        .content-section:hover { border-color: rgba(79,142,247,0.2); }
+
+        .section-heading {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .section-heading i {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1rem;
+        }
+
+        p { color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem; }
+        p:last-child { margin-bottom: 0; }
+        p a { color: var(--accent-cyan); text-decoration: none; border-bottom: 1px solid rgba(100,255,218,0.3); transition: border-color 0.2s; }
+        p a:hover { border-color: var(--accent-cyan); }
+        ul, ol { padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.95rem; }
+        li { margin-bottom: 0.4rem; }
+
+        .warning-box {
+            background: rgba(255,165,0,0.06);
+            border: 1px solid rgba(255,165,0,0.2);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+        .warning-box p { margin: 0; color: #ffd580; font-size: 0.9rem; }
+
+        .page-footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .page-footer p { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin: 0 0.75rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--accent-cyan); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">RAGHAV<span>SIHAG</span></a>
+            <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="page-header">
+            <div class="page-badge"><i class="fa-solid fa-file-contract"></i> Legal</div>
+            <h1 class="page-title">Terms & <span>Conditions</span></h1>
+            <p class="page-meta">Last updated: <strong>May 29, 2026</strong> &nbsp;·&nbsp; Effective for raghavsihag1.github.io</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-circle-info"></i> Agreement to Terms</h2>
+            <p>By accessing or using this personal portfolio website at <a href="https://raghavsihag1.github.io" target="_blank">raghavsihag1.github.io</a>, you agree to be bound by these Terms and Conditions. If you disagree with any part of these terms, you may not access this website.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-regular fa-copyright"></i> Intellectual Property</h2>
+            <p>All content on this website — including but not limited to text, graphics, logos, images, audio clips, and software — is the property of <strong>Raghav Sihag</strong> and is protected by applicable intellectual property laws.</p>
+            <p>You may not reproduce, distribute, modify, transmit, or otherwise use any content from this site for commercial purposes without prior written consent from the owner.</p>
+            <p>Personal, non-commercial use of this website's content is permitted, provided that you do not modify the content and that you retain all copyright and proprietary notices.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-ban"></i> Prohibited Activities</h2>
+            <p>While using this website, you agree not to:</p>
+            <ul>
+                <li>Scrape, harvest, or extract data from the site in an automated manner.</li>
+                <li>Attempt to gain unauthorized access to any portion or feature of the site.</li>
+                <li>Use the site to transmit spam, malware, or any form of malicious code.</li>
+                <li>Impersonate the site owner or any other person or entity.</li>
+                <li>Engage in any activity that could damage, overload, or impair the site's servers.</li>
+                <li>Collect or harvest personal information of other users.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-brands fa-google"></i> Third-Party Advertising (Google AdSense)</h2>
+            <p>This website displays advertisements served by Google AdSense. By using this site, you acknowledge that:</p>
+            <ul>
+                <li>Google AdSense uses cookies and tracking technologies to serve personalized or contextual ads.</li>
+                <li>You can opt out of personalized advertising via <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google's Ad Settings</a>.</li>
+                <li>The website owner is not responsible for the content, accuracy, or practices of advertisers whose ads appear on this site.</li>
+                <li>Clicking on advertisements is entirely at your own discretion and risk.</li>
+            </ul>
+            <div class="warning-box">
+                <p><i class="fa-solid fa-triangle-exclamation"></i> &nbsp; Please do not click on ads fraudulently or repeatedly. This violates Google AdSense policies and may result in account suspension.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-link"></i> External Links</h2>
+            <p>This website may contain links to third-party websites, including LinkedIn, GitHub, and others. These links are provided for convenience and informational purposes only. I have no control over the content of those sites and accept no responsibility for them or for any loss or damage that may arise from your use of them.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-triangle-exclamation"></i> Disclaimer of Warranties</h2>
+            <p>This website is provided on an "as is" and "as available" basis. To the maximum extent permitted by law:</p>
+            <ul>
+                <li>No warranties of any kind are made, expressed or implied, regarding the operation or availability of the site.</li>
+                <li>I do not warrant that the site will be error-free, uninterrupted, or free of viruses or other harmful components.</li>
+                <li>Content on this site is for informational purposes only and should not be relied upon as professional advice.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-scale-balanced"></i> Limitation of Liability</h2>
+            <p>To the fullest extent permitted by applicable law, Raghav Sihag shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of — or inability to use — this website or its content.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-rotate"></i> Changes to Terms</h2>
+            <p>These Terms and Conditions may be revised at any time without notice. By continuing to use this website after any revisions are posted, you agree to be bound by the updated terms. Please check this page regularly for any changes.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-heading"><i class="fa-solid fa-envelope"></i> Contact</h2>
+            <p>If you have any questions about these Terms and Conditions, please contact:</p>
+            <p><strong>Raghav Sihag</strong><br>
+            Email: <a href="mailto:rgvsihag@gmail.com">rgvsihag@gmail.com</a><br>
+            Location: New Delhi, India</p>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <p>&copy; 2026 Raghav Sihag. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Portfolio</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+        </div>
+    </footer>
+</body>
+</html>
