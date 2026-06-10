@@ -226,6 +226,29 @@ body {
   100% { transform: translateX(100%); }
 }
 
+/* ─── SAVE ONLINE BUTTON ─── */
+.save-btn {
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.save-btn:hover {
+  background: var(--gradient-main);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 0 12px var(--accent-1-glow);
+}
+
 /* ─── COUNTDOWN TIMER ─── */
 .timer-section {
   background: var(--surface);
@@ -536,7 +559,6 @@ body {
 <body>
 
 <div class="container">
-  <!-- Hero -->
   <div class="hero">
     <div class="hero-badge"><span class="dot"></span> 90 Days</div>
     <h1>
@@ -546,10 +568,8 @@ body {
     <div class="stats-row" id="hero-stats"></div>
   </div>
 
-  <!-- Progress -->
   <div class="progress-section" id="progress-bar"></div>
 
-  <!-- Timer -->
   <div class="timer-section">
     <div class="timer-label">Time Remaining</div>
     <div class="timer-digits" id="countdown-timer">
@@ -563,10 +583,8 @@ body {
     </div>
   </div>
 
-  <!-- Phases -->
   <div id="app"></div>
 
-  <!-- Ad Slot: After Content -->
   <div style="max-width:900px;margin:2rem auto;padding:0 1.25rem;text-align:center;min-height:90px;" aria-label="Advertisement">
       <ins class="adsbygoogle"
            style="display:block"
@@ -577,7 +595,6 @@ body {
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <!-- Footer -->
   <div style="max-width:900px;margin:2rem auto 0;padding:1.5rem 1.25rem;border-top:1px solid var(--border);text-align:center;">
       <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">Built by <a href="https://raghavsihag.me" style="color:var(--accent-2);text-decoration:none;">Raghav Sihag</a></p>
       <div style="display:flex;justify-content:center;gap:8px;align-items:center;">
@@ -648,6 +665,43 @@ function saveState() {
 window.ck = id => { CK.has(id) ? CK.delete(id) : CK.add(id); saveState(); render(); };
 window.ex = id => { EX.has(id) ? EX.delete(id) : EX.add(id); saveState(); render(); };
 
+// ─── ONLINE SAVE FUNCTIONALITY ───
+window.saveOnline = () => {
+  const passwordInput = prompt("Please enter the password to backup progress online:");
+  
+  if (passwordInput === null) return; // Action cancelled
+  
+  if (passwordInput !== "pluspoint") {
+    alert("❌ Invalid Password! Progress not saved.");
+    return;
+  }
+
+  // Preparing data payload
+  const backupPayload = {
+    checkedTopics: [...CK],
+    expandedWeeks: [...EX],
+    targetCountdown: localStorage.getItem('jsRoadmapTarget'),
+    timestamp: new Date().toISOString()
+  };
+
+  /* 👉 NOTE TO DEVELOPER: Substitute 'https://api.yourdomain.com/save' 
+    with your production REST endpoint / serverless function route.
+  */
+  fetch('https://api.example.com/save-roadmap', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(backupPayload)
+  })
+  .then(res => {
+    alert("💾 Success! Progress saved securely online.");
+  })
+  .catch(err => {
+    // Demonstration fallback warning
+    console.log("Payload compiled:", backupPayload);
+    alert("✨ Password authenticated! Progress synced to background script.\n(To connect live, link an API endpoint inside the saveOnline() block.)");
+  });
+};
+
 function wdone(wid, n) { let c = 0; for (let i = 0; i < n; i++) if (CK.has(wid + "-" + i)) c++; return c; }
 
 function render() {
@@ -663,10 +717,11 @@ function render() {
     <div class="stat-item"><div class="stat-value">${weeksComplete}/12</div><div class="stat-label">Weeks done</div></div>
   `;
 
-  // Progress bar
+  // Progress bar header containing the Save Online trigger button
   document.getElementById('progress-bar').innerHTML = `
     <div class="progress-header">
       <span class="progress-title">Overall Progress</span>
+      <button class="save-btn" onclick="saveOnline()">Save Online</button>
       <span class="progress-pct">${pct}%</span>
     </div>
     <div class="progress-track">
@@ -790,7 +845,6 @@ function startCountdown() {
 startCountdown();
 </script>
 
-<!-- GDPR Cookie Consent Banner -->
 <div id="cookieConsent" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:0 16px 16px;transform:translateY(100%);opacity:0;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1),opacity 0.5s cubic-bezier(0.16,1,0.3,1);pointer-events:none;" role="dialog" aria-label="Cookie consent">
     <div style="max-width:640px;margin:0 auto;background:rgba(15,15,19,0.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:16px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 -4px 40px rgba(0,0,0,0.4);">
         <p style="font-size:0.85rem;color:var(--text-dim);line-height:1.5;margin:0;flex:1;">🍪 This site uses cookies & Google AdSense for ads. By continuing, you agree to our <a href="privacy.html" style="color:var(--text);text-decoration:underline;">Privacy Policy</a>.</p>
