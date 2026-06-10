@@ -668,37 +668,31 @@ window.ex = id => { EX.has(id) ? EX.delete(id) : EX.add(id); saveState(); render
 // ─── ONLINE SAVE FUNCTIONALITY ───
 window.saveOnline = () => {
   const passwordInput = prompt("Please enter the password to backup progress online:");
-  
-  if (passwordInput === null) return; // Action cancelled
+  if (passwordInput === null) return;
   
   if (passwordInput !== "pluspoint") {
-    alert("❌ Invalid Password! Progress not saved.");
+    alert("❌ Invalid Password!");
     return;
   }
 
-  // Preparing data payload
   const backupPayload = {
     checkedTopics: [...CK],
     expandedWeeks: [...EX],
     targetCountdown: localStorage.getItem('jsRoadmapTarget'),
-    timestamp: new Date().toISOString()
   };
 
-  /* 👉 NOTE TO DEVELOPER: Substitute 'https://api.yourdomain.com/save' 
-    with your production REST endpoint / serverless function route.
-  */
-  fetch('https://api.example.com/save-roadmap', {
+  // Go to kvdb.io, grab a free bucket ID string, and drop it here:
+  const BUCKET_ID = 'your_free_bucket_id_here'; 
+
+  fetch(`https://kvdb.io/${BUCKET_ID}/progress`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(backupPayload)
   })
-  .then(res => {
-    alert("💾 Success! Progress saved securely online.");
+  .then(() => {
+    alert("💾 Success! Progress saved to the cloud.");
   })
   .catch(err => {
-    // Demonstration fallback warning
-    console.log("Payload compiled:", backupPayload);
-    alert("✨ Password authenticated! Progress synced to background script.\n(To connect live, link an API endpoint inside the saveOnline() block.)");
+    alert("❌ Failed to save online.");
   });
 };
 
