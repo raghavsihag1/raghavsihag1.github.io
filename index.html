@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raghav Sihag | Entrepreneurial Technologist</title>
     <meta name="description" content="Portfolio of Raghav Sihag, B.Tech CSE student at University of Delhi & Entrepreneurial Technologist. Specializing in Web Development, Cybersecurity, Blockchain, and Graphic Design.">
+    <link rel="canonical" href="https://raghavsihag.me/">
+    <meta property="og:title" content="Raghav Sihag | Entrepreneurial Technologist">
+    <meta property="og:description" content="Portfolio of Raghav Sihag — B.Tech CSE student at University of Delhi specializing in Web Development, Cybersecurity, Blockchain, and Graphic Design.">
+    <meta property="og:url" content="https://raghavsihag.me/">
+    <meta property="og:type" content="website">
+    <meta name="author" content="Raghav Sihag">
 
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,6 +91,17 @@
                 <span class="scroll-text">Scroll to explore</span>
             </div>
         </section>
+
+        <!-- Ad Slot: After Hero -->
+        <div class="ad-container" aria-label="Advertisement">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7287159043409706"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- About / Education Section -->
         <section id="about" class="about-section scroll-reveal">
@@ -224,6 +241,17 @@
                 </div>
             </div>
         </section>
+
+        <!-- Ad Slot: After Experience -->
+        <div class="ad-container" aria-label="Advertisement">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7287159043409706"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- Skills Section -->
         <section id="skills" class="skills-section scroll-reveal">
@@ -388,6 +416,17 @@
             </div>
         </section>
 
+        <!-- Ad Slot: After Connect -->
+        <div class="ad-container" aria-label="Advertisement">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7287159043409706"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
         <!-- Contact Section -->
         <section id="contact" class="contact-section scroll-reveal">
             <div class="container">
@@ -449,6 +488,7 @@
                                 <label for="message">Message</label>
                                 <textarea id="message" name="message" required rows="5"
                                     placeholder="Tell me about your project..."></textarea>
+                            </div>
                                 <button type="submit" class="btn btn-primary form-submit">Send Message <i
                                         class="fa-solid fa-paper-plane"></i></button>
                         </form>
@@ -463,13 +503,18 @@
         <div class="container footer-container">
             <div class="footer-left">
                 <a href="#" class="logo">RAGHAV<span>SIHAG</span></a>
-                <p>Entrepreneurial Technologist. Engineering student driven by curiostiy and challenge.</p>
+                <p>Entrepreneurial Technologist. Engineering student driven by curiosity and challenge.</p>
             </div>
                 <div class="footer-right">
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/raghavsihag/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                         <a href="mailto:rgvsihag@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
                         <a href="tel:" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+                    </div>
+                    <div class="footer-legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <span class="footer-divider">·</span>
+                        <a href="terms.html">Terms & Conditions</a>
                     </div>
                     <p class="copyright">&copy; 2026 Raghav Sihag. All rights reserved.</p>
                 </div>
@@ -514,6 +559,49 @@
 
             <!-- Custom Script -->
             <script src="script.js"></script>
+
+    <!-- GDPR Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <i class="fa-solid fa-cookie-bite cookie-icon"></i>
+                <p>This site uses cookies & Google AdSense for ads. By continuing, you agree to our
+                    <a href="privacy.html">Privacy Policy</a>.
+                </p>
+            </div>
+            <div class="cookie-actions">
+                <button id="cookieAccept" class="btn btn-primary cookie-btn">Accept All</button>
+                <button id="cookieDecline" class="btn btn-secondary cookie-btn">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Cookie Consent Logic
+    (function() {
+        const consent = localStorage.getItem('cookie-consent');
+        const banner = document.getElementById('cookieConsent');
+        if (!banner) return;
+
+        if (!consent) {
+            setTimeout(() => banner.classList.add('visible'), 1500);
+        }
+
+        document.getElementById('cookieAccept').addEventListener('click', () => {
+            localStorage.setItem('cookie-consent', 'accepted');
+            banner.classList.remove('visible');
+            // Enable personalized ads
+            (adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 0;
+        });
+
+        document.getElementById('cookieDecline').addEventListener('click', () => {
+            localStorage.setItem('cookie-consent', 'declined');
+            banner.classList.remove('visible');
+            // Switch to non-personalized ads only
+            (adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
+        });
+    })();
+    </script>
 </body>
 
 </html>
