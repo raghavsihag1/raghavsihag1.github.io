@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reclav | Hospital Revenue Intelligence & Recovery Automation</title>
+    <meta name="description"
+        content="AI agents that monitor, protect, and recover hospital revenue across billing, insurance, collections, OPD, OT, and patient workflows — in real time.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&family=Sora:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <!-- Ticker Bar -->
+    <div class="ticker-wrap">
+        <div class="ticker-track">
+            <span>₹18–34 Cr lost annually per 150-bed hospital</span>
+            <span class="ticker-sep">·</span>
+            <span>15–25% average revenue leakage</span>
+            <span class="ticker-sep">·</span>
+            <span>800+ hospitals in Delhi NCR</span>
+            <span class="ticker-sep">·</span>
+            <span>Claim denial rate: 18–22%</span>
+            <span class="ticker-sep">·</span>
+            <span>OT cancellations cost ₹30K–₹1.5L per slot</span>
+            <span class="ticker-sep">·</span>
+            <span>Private pilot access opening soon</span>
+            <span class="ticker-sep">·</span>
+            <span>₹18–34 Cr lost annually per 150-bed hospital</span>
+            <span class="ticker-sep">·</span>
+            <span>15–25% average revenue leakage</span>
+            <span class="ticker-sep">·</span>
+            <span>800+ hospitals in Delhi NCR</span>
+            <span class="ticker-sep">·</span>
+            <span>Claim denial rate: 18–22%</span>
+            <span class="ticker-sep">·</span>
+            <span>OT cancellations cost ₹30K–₹1.5L per slot</span>
+            <span class="ticker-sep">·</span>
+            <span>Private pilot access opening soon</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="logo.png"></div>
+            <div class="nav-links">
+                <a href="#audit">The Crisis</a>
+                <a href="#agents">Agents</a>
+                <a href="#workflow">How It Works</a>
+            </div>
+            <div class="nav-actions">
+                <span class="status-badge"><span class="pulse"></span>Private Pilot</span>
+                <a href="#waitlist" class="btn-nav">Request Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow animate-in">
+                <span class="eyebrow-dot"></span>
+                Launching Soon · Delhi NCR
+            </div>
+            <h1 class="animate-in delay-1">
+                Every Day Hospitals Lose Revenue
+                <span class="hero-gradient-text">They Never See.</span>
+            </h1>
+            <p class="hero-sub animate-in delay-2">AI agents that monitor, protect, and recover hospital revenue across
+                billing, insurance, collections, OPD, OT, and patient workflows — in real time.</p>
+            <div class="hero-cta animate-in delay-3">
+                <a href="#waitlist" class="btn-primary-hero">
+                    <span>Request Early Access</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="#audit" class="btn-ghost-hero">View Revenue Audit</a>
+            </div>
+            <div class="hero-trust animate-in delay-4">
+                <span>DPDP Compliant</span><span class="trust-divider">·</span>
+                <span>Human-in-the-Loop</span><span class="trust-divider">·</span>
+                <span>Enterprise-Grade Security</span>
+            </div>
+        </div>
+
+        <!-- Rich Dashboard Mockup -->
+        <div class="hero-visual animate-in delay-4">
+            <div class="dashboard-float">
+                <!-- Main window -->
+                <div class="dash-window">
+                    <div class="dash-titlebar">
+                        <div class="dash-dots"><span></span><span></span><span></span></div>
+                        <div class="dash-title">Reclav Command Center &nbsp;·&nbsp; Live</div>
+                        <div class="dash-live"><span class="dash-pulse"></span>LIVE</div>
+                    </div>
+                    <div class="dash-body">
+                        <div class="dash-sidebar">
+                            <div class="dash-nav-item active">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="3" width="7" height="7" />
+                                    <rect x="14" y="3" width="7" height="7" />
+                                    <rect x="3" y="14" width="7" height="7" />
+                                    <rect x="14" y="14" width="7" height="7" />
+                                </svg>
+                                Overview
+                            </div>
+                            <div class="dash-nav-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                Agents
+                            </div>
+                            <div class="dash-nav-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                                Revenue
+                            </div>
+                            <div class="dash-nav-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                                </svg>
+                                Alerts
+                            </div>
+                        </div>
+                        <div class="dash-main">
+                            <div class="dash-kpi-row">
+                                <div class="dash-kpi">
+                                    <div class="kpi-label">Recovered Today</div>
+                                    <div class="kpi-value kpi-green">₹4.2L</div>
+                                    <div class="kpi-delta">↑ 12% vs yesterday</div>
+                                </div>
+                                <div class="dash-kpi">
+                                    <div class="kpi-label">Claims Processed</div>
+                                    <div class="kpi-value kpi-blue">247</div>
+                                    <div class="kpi-delta">↑ 8% vs yesterday</div>
+                                </div>
+                                <div class="dash-kpi">
+                                    <div class="kpi-label">Denial Rate</div>
+                                    <div class="kpi-value kpi-amber">4.1%</div>
+                                    <div class="kpi-delta">↓ from 18% baseline</div>
+                                </div>
+                            </div>
+                            <div class="dash-chart-area">
+                                <div class="chart-label">Revenue Recovery — 30 Day Trend</div>
+                                <svg class="chart-svg" viewBox="0 0 500 90" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#0057FF" stop-opacity="0.3" />
+                                            <stop offset="100%" stop-color="#0057FF" stop-opacity="0" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path
+                                        d="M0,70 C40,65 60,60 90,50 C120,40 140,55 170,38 C200,21 220,35 250,25 C280,15 300,30 330,18 C360,6 380,20 410,12 C440,4 460,15 500,8"
+                                        fill="none" stroke="#0057FF" stroke-width="2" />
+                                    <path
+                                        d="M0,70 C40,65 60,60 90,50 C120,40 140,55 170,38 C200,21 220,35 250,25 C280,15 300,30 330,18 C360,6 380,20 410,12 C440,4 460,15 500,8 L500,90 L0,90 Z"
+                                        fill="url(#chartGrad)" />
+                                </svg>
+                            </div>
+                            <div class="dash-alert-row">
+                                <div class="dash-alert alert-warn">
+                                    <span class="alert-dot amber"></span>
+                                    <span>3 IPD charges unbilled — Ward B4</span>
+                                </div>
+                                <div class="dash-alert alert-ok">
+                                    <span class="alert-dot green"></span>
+                                    <span>Pre-auth approved: TPA Apollo — Bed 12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Floating stat card -->
+                <div class="float-card float-card-1">
+                    <div class="float-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="float-val">₹12–23 Cr</div>
+                        <div class="float-sub">Recoverable / year</div>
+                    </div>
+                </div>
+                <!-- Floating agent status -->
+                <div class="float-card float-card-2">
+                    <div class="float-icon blue">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0057FF" stroke-width="2">
+                            <circle cx="12" cy="12" r="3" />
+                            <path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="float-val">6 Agents</div>
+                        <div class="float-sub">Active · 24/7</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Crisis Section -->
+    <section class="section crisis" id="audit">
+        <div class="section-container">
+            <div class="section-label reveal">The Problem</div>
+            <div class="section-header reveal">
+                <h2>The Hidden Revenue Leakage Crisis</h2>
+                <p>Volume has outgrown manual capacity. By the time a claim is denied, a slot is empty, or a patient
+                    disputes a bill — the damage is already done.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card reveal" data-accent="blue">
+                    <div class="stat-glow blue"></div>
+                    <div class="stat-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057FF" stroke-width="1.5">
+                            <path
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div class="stat-value blue-text">15–25%</div>
+                    <div class="stat-label">Revenue Leakage</div>
+                    <div class="stat-desc">Of gross annual revenue slips through disconnected, manual workflows —
+                        silently.</div>
+                </div>
+                <div class="stat-card reveal" data-accent="emerald">
+                    <div class="stat-glow emerald"></div>
+                    <div class="stat-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5">
+                            <path
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="stat-value emerald-text">₹18–34 Cr</div>
+                    <div class="stat-label">Lost Annually</div>
+                    <div class="stat-desc">Conservative estimate for a 150-bed multi-specialty hospital with ₹80 Cr
+                        gross revenue.</div>
+                </div>
+                <div class="stat-card reveal" data-accent="purple">
+                    <div class="stat-glow purple"></div>
+                    <div class="stat-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5">
+                            <path
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
+                    <div class="stat-value purple-text">800+</div>
+                    <div class="stat-label">Hospitals in Delhi NCR</div>
+                    <div class="stat-desc">Private hospitals facing structural margin compression with no intelligent
+                        solution.</div>
+                </div>
+            </div>
+
+            <!-- Leakage Breakdown Table -->
+            <div class="leakage-table reveal">
+                <div class="table-header">
+                    <h3>Revenue Leakage Breakdown <span class="table-note">— 150-bed hospital, ₹80 Cr gross
+                            revenue</span></h3>
+                </div>
+                <div class="table-rows">
+                    <div class="table-row">
+                        <div class="row-name">Insurance Claim Denials & Underpayments</div>
+                        <div class="row-loss">₹5.0 – ₹9.0 Cr</div>
+                        <div class="row-pct">6–11%</div>
+                        <div class="row-bar">
+                            <div class="bar-fill" style="width: 75%; background: #EF4444;"></div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="row-name">Missed or Incomplete IPD Billing</div>
+                        <div class="row-loss">₹4.0 – ₹6.0 Cr</div>
+                        <div class="row-pct">5–7.5%</div>
+                        <div class="row-bar">
+                            <div class="bar-fill" style="width: 60%; background: #F59E0B;"></div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="row-name">Collections Gap, Patient Attrition & Bad Debt</div>
+                        <div class="row-loss">₹3.2 – ₹6.4 Cr</div>
+                        <div class="row-pct">4–8%</div>
+                        <div class="row-bar">
+                            <div class="bar-fill" style="width: 55%; background: #F59E0B;"></div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="row-name">Elective OT Cancellations</div>
+                        <div class="row-loss">₹2.0 – ₹5.0 Cr</div>
+                        <div class="row-pct">2.5–6%</div>
+                        <div class="row-bar">
+                            <div class="bar-fill" style="width: 42%; background: #8B5CF6;"></div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="row-name">OPD No-Shows & Cancellations</div>
+                        <div class="row-loss">₹2.0 – ₹4.0 Cr</div>
+                        <div class="row-pct">2.5–5%</div>
+                        <div class="row-bar">
+                            <div class="bar-fill" style="width: 38%; background: #0057FF;"></div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="row-name">Discharge Process Turnaround Delays</div>
+                        <div class="row-loss">₹1.0 – ₹2.0 Cr</div>
+                        <div class="row-pct">1.2–2.5%</div>
+                        <div class="row-bar">
+                            <div class="bar-fill" style="width: 25%; background: #10B981;"></div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="row-name">Pharmacy & Supply Inventory Shrinkage</div>
+                        <div class="row-loss">₹0.8 – ₹1.6 Cr</div>
+                        <div class="row-pct">1–2%</div>
+                        <div class="row-bar">
+                            <div class="bar-fill" style="width: 15%; background: #EF4444;"></div>
+                        </div>
+                    </div>
+                    <div class="table-row total-row">
+                        <div class="row-name">Total Leakage</div>
+                        <div class="row-loss emerald-text">₹18 – ₹34 Cr</div>
+                        <div class="row-pct emerald-text">22.5–42.5%</div>
+                        <div class="row-bar">
+                            <div class="bar-fill"
+                                style="width: 100%; background: linear-gradient(90deg, #0057FF, #10B981);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Root Causes Section -->
+    <section class="section root-causes">
+        <div class="section-container">
+            <div class="section-label reveal">Root Causes</div>
+            <div class="section-header reveal">
+                <h2>Why This Problem Has Proven So Hard to Solve</h2>
+                <p>The causes are structural, not superficial. Hiring more billing staff or replacing your HIS won't fix
+                    them.</p>
+            </div>
+            <div class="causes-grid">
+                <div class="cause-card reveal">
+                    <div class="cause-number">01</div>
+                    <div class="cause-body">
+                        <h4>Data is Everywhere, Visible Nowhere</h4>
+                        <p>Patient records, billing, insurance status, and clinical notes exist in isolated systems that
+                            never talk to each other in real time. No one in your hospital has a live, complete view of
+                            what is happening to revenue at any given moment.</p>
+                    </div>
+                </div>
+                <div class="cause-card reveal">
+                    <div class="cause-number">02</div>
+                    <div class="cause-body">
+                        <h4>Reactive, Not Preventive</h4>
+                        <p>By the time a claim is denied, a slot is empty, or a patient disputes a bill — the damage is
+                            done. Every revenue recovery effort is remediation. The systems simply do not exist to
+                            intervene before the loss occurs.</p>
+                    </div>
+                </div>
+                <div class="cause-card reveal">
+                    <div class="cause-number">03</div>
+                    <div class="cause-body">
+                        <h4>Insurance Ecosystem Complexity</h4>
+                        <p>With 30+ TPAs each operating different pre-auth workflows, documentation requirements, and
+                            coding standards — the only way to stay consistently compliant is with automated,
+                            insurer-specific intelligence.</p>
+                    </div>
+                </div>
+                <div class="cause-card reveal">
+                    <div class="cause-number">04</div>
+                    <div class="cause-body">
+                        <h4>Volume Outgrows Manual Capacity</h4>
+                        <p>A 150-bed hospital running at capacity generates hundreds of chargeable events, insurance
+                            interactions, and billing touchpoints every single day. Human teams cannot monitor all of it
+                            without structural gaps.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents Section -->
+    <section class="section agents" id="agents">
+        <div class="section-container">
+            <div class="section-label reveal">The Solution</div>
+            <div class="section-header reveal">
+                <h2>Six Autonomous AI Agents</h2>
+                <p>Operating 24/7 across every patient touchpoint. No fatigue, no blind spots, no shift changes.</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Agent 1 — Wide -->
+                <div class="bento-item bento-wide reveal" data-color="blue">
+                    <div class="bento-bg-glow blue"></div>
+                    <div class="agent-header">
+                        <div class="agent-icon-wrap blue">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057FF"
+                                stroke-width="1.5">
+                                <path
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div class="agent-tag">Agent 01</div>
+                    </div>
+                    <h3>Revenue Cycle Watchdog</h3>
+                    <p>Continuously monitors the billing pipeline for every active patient. Flags missed charges,
+                        unbilled consumables, and inconsistencies between clinical records and billing in real time —
+                        before the patient is discharged.</p>
+                    <div class="agent-impact">
+                        <span class="impact-label">Expected Impact</span>
+                        <span class="impact-value">↑ IPD billing accuracy by 8–15%</span>
+                    </div>
+                </div>
+
+                <!-- Agent 2 -->
+                <div class="bento-item reveal" data-color="emerald">
+                    <div class="bento-bg-glow emerald"></div>
+                    <div class="agent-header">
+                        <div class="agent-icon-wrap emerald">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10B981"
+                                stroke-width="1.5">
+                                <path
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                            </svg>
+                        </div>
+                        <div class="agent-tag">Agent 02</div>
+                    </div>
+                    <h3>Claims & Pre-Auth Bot</h3>
+                    <p>Automates TPA pre-authorization, assembles insurer-specific claim packages, and proactively
+                        follows up on denials. Learns denial patterns to reduce future rejections.</p>
+                    <div class="agent-impact">
+                        <span class="impact-label">Expected Impact</span>
+                        <span class="impact-value">↓ Denial rate 18% → &lt;6%</span>
+                    </div>
+                </div>
+
+                <!-- Agent 3 -->
+                <div class="bento-item reveal" data-color="purple">
+                    <div class="bento-bg-glow purple"></div>
+                    <div class="agent-header">
+                        <div class="agent-icon-wrap purple">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6"
+                                stroke-width="1.5">
+                                <path
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div class="agent-tag">Agent 03</div>
+                    </div>
+                    <h3>Smart OPD Optimizer</h3>
+                    <p>Predicts no-show probability using patient history and behavioral signals. Auto-activates
+                        waitlists, sends intelligent reminders via WhatsApp/SMS, and optimizes doctor scheduling.</p>
+                    <div class="agent-impact">
+                        <span class="impact-label">Expected Impact</span>
+                        <span class="impact-value">↑ OPD utilization by 20–30%</span>
+                    </div>
+                </div>
+
+                <!-- Agent 4 — Wide -->
+                <div class="bento-item bento-wide reveal" data-color="amber">
+                    <div class="bento-bg-glow amber"></div>
+                    <div class="agent-header">
+                        <div class="agent-icon-wrap amber">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F59E0B"
+                                stroke-width="1.5">
+                                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div class="agent-tag">Agent 04</div>
+                    </div>
+                    <h3>Discharge & Collections Accelerator</h3>
+                    <p>Initiates parallel discharge workflows the moment clinical sign-off occurs — billing
+                        finalization, TPA discharge approval, pharmacy reconciliation — simultaneously. Sends itemized
+                        pre-bills and automates payment reminders.</p>
+                    <div class="agent-impact">
+                        <span class="impact-label">Expected Impact</span>
+                        <span class="impact-value">↓ Discharge time by 2–4 hrs · ↓ Bad debt by 40%</span>
+                    </div>
+                </div>
+
+                <!-- Agent 5 -->
+                <div class="bento-item reveal" data-color="blue">
+                    <div class="bento-bg-glow blue"></div>
+                    <div class="agent-header">
+                        <div class="agent-icon-wrap blue">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057FF"
+                                stroke-width="1.5">
+                                <path
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div class="agent-tag">Agent 05</div>
+                    </div>
+                    <h3>Bed & OT Utilisation</h3>
+                    <p>Predicts OT cancellations and proactively fills slots from a prioritized waitlist. Optimizes bed
+                        allocation across wards based on forecasted admissions in real time.</p>
+                    <div class="agent-impact">
+                        <span class="impact-label">Expected Impact</span>
+                        <span class="impact-value">↑ OT & bed revenue by 10–18%</span>
+                    </div>
+                </div>
+
+                <!-- Agent 6 -->
+                <div class="bento-item reveal" data-color="emerald">
+                    <div class="bento-bg-glow emerald"></div>
+                    <div class="agent-header">
+                        <div class="agent-icon-wrap emerald">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10B981"
+                                stroke-width="1.5">
+                                <path
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <div class="agent-tag">Agent 06</div>
+                    </div>
+                    <h3>Patient Retention Agent</h3>
+                    <p>Monitors post-discharge journeys — missed follow-ups, unfilled prescriptions, lapsed chronic care
+                        visits — and proactively brings patients back before revenue migrates to competitors.</p>
+                    <div class="agent-impact">
+                        <span class="impact-label">Expected Impact</span>
+                        <span class="impact-value">↑ Repeat visit rate by 15–25%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section workflow" id="workflow">
+        <div class="section-container">
+            <div class="section-label reveal">Process</div>
+            <div class="section-header reveal">
+                <h2>How Reclav Works</h2>
+                <p>A closed-loop system that detects, acts on, and recovers revenue autonomously — without disrupting
+                    existing workflows.</p>
+            </div>
+            <div class="workflow-grid">
+                <div class="workflow-step reveal">
+                    <div class="wf-connector"></div>
+                    <div class="wf-number">01</div>
+                    <div class="wf-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h4>Audit</h4>
+                    <p>We connect to your HIS and run a structured 6–12 month analysis of billing, claims, and OPD data
+                        to quantify your specific revenue leakage — not industry averages. Your data.</p>
+                </div>
+                <div class="workflow-step reveal">
+                    <div class="wf-connector"></div>
+                    <div class="wf-number">02</div>
+                    <div class="wf-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </div>
+                    <h4>Detect</h4>
+                    <p>Live AI agents monitor every active patient journey simultaneously, identifying undocumented
+                        charges, claim risks, and discharge delays the moment they occur — not after the fact.</p>
+                </div>
+                <div class="workflow-step reveal">
+                    <div class="wf-connector"></div>
+                    <div class="wf-number">03</div>
+                    <div class="wf-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h4>Automate</h4>
+                    <p>Corrective workflows are triggered automatically — assembling TPA claim packages, filling OPD
+                        slots from waitlists, sending WhatsApp payment reminders — all with human-in-the-loop
+                        escalation.</p>
+                </div>
+                <div class="workflow-step reveal">
+                    <div class="wf-number">04</div>
+                    <div class="wf-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h4>Recover</h4>
+                    <p>Revenue that was previously written off is captured, creating structurally higher margins.
+                        Results are visible in your command center dashboard — in real time, down to the rupee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section comparison">
+        <div class="section-container">
+            <div class="section-label reveal">Competitive Edge</div>
+            <div class="section-header reveal">
+                <h2>Why Existing Systems Fail</h2>
+                <p>Record-keeping tools were built to store data. Reclav was built to act on it.</p>
+            </div>
+            <div class="comp-container reveal">
+                <div class="comp-col comp-legacy">
+                    <div class="comp-head">
+                        <div class="comp-badge-legacy">Legacy HIS / RCM</div>
+                    </div>
+                    <div class="comp-items">
+                        <div class="comp-item neg">
+                            <div class="comp-dot neg"></div>
+                            <div><strong>Reactive:</strong> Stores data, cannot predict or prevent revenue loss</div>
+                        </div>
+                        <div class="comp-item neg">
+                            <div class="comp-dot neg"></div>
+                            <div><strong>Batch-mode:</strong> Multi-day claim turnaround, no real-time TPA integration
+                            </div>
+                        </div>
+                        <div class="comp-item neg">
+                            <div class="comp-dot neg"></div>
+                            <div><strong>Limited hours:</strong> Staff-dependent, constrained by working hours and
+                                manual effort</div>
+                        </div>
+                        <div class="comp-item neg">
+                            <div class="comp-dot neg"></div>
+                            <div><strong>Generic:</strong> Not trained on Delhi TPA behavior or local coding standards
+                            </div>
+                        </div>
+                        <div class="comp-item neg">
+                            <div class="comp-dot neg"></div>
+                            <div><strong>Siloed:</strong> No cross-system visibility between billing, clinical, and
+                                insurance data</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comp-vs">VS</div>
+                <div class="comp-col comp-reclav">
+                    <div class="comp-head">
+                        <div class="comp-badge-reclav">Reclav AI Agents</div>
+                    </div>
+                    <div class="comp-items">
+                        <div class="comp-item pos">
+                            <div class="comp-dot pos"></div>
+                            <div><strong>Preventive:</strong> Intercepts revenue loss before it occurs, not after</div>
+                        </div>
+                        <div class="comp-item pos">
+                            <div class="comp-dot pos"></div>
+                            <div><strong>Real-time:</strong> Live TPA portal integrations with insurer-specific
+                                intelligence</div>
+                        </div>
+                        <div class="comp-item pos">
+                            <div class="comp-dot pos"></div>
+                            <div><strong>24/7 operations:</strong> Autonomous agents with no fatigue, no shift changes
+                            </div>
+                        </div>
+                        <div class="comp-item pos">
+                            <div class="comp-dot pos"></div>
+                            <div><strong>Delhi-native:</strong> Built on local TPA behavior, documentation standards,
+                                and payer profiles</div>
+                        </div>
+                        <div class="comp-item pos">
+                            <div class="comp-dot pos"></div>
+                            <div><strong>Unified view:</strong> Single command center across billing, clinical, OPD, and
+                                insurance workflows</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KPI Target Section -->
+    <section class="section kpi-section">
+        <div class="section-container">
+            <div class="section-label reveal">Expected Outcomes</div>
+            <div class="section-header reveal">
+                <h2>Performance Targets at 12 Months</h2>
+                <p>Modeled on a 150-bed private hospital in Delhi. Actual results will vary by hospital profile.</p>
+            </div>
+            <div class="kpi-grid">
+                <div class="kpi-card reveal">
+                    <div class="kpi-current">18–22%</div>
+                    <div class="kpi-arrow">→</div>
+                    <div class="kpi-target">&lt;6%</div>
+                    <div class="kpi-name">Claim Denial Rate</div>
+                </div>
+                <div class="kpi-card reveal">
+                    <div class="kpi-current">85–90%</div>
+                    <div class="kpi-arrow">→</div>
+                    <div class="kpi-target">&gt;97%</div>
+                    <div class="kpi-name">IPD Billing Accuracy</div>
+                </div>
+                <div class="kpi-card reveal">
+                    <div class="kpi-current">72–78%</div>
+                    <div class="kpi-arrow">→</div>
+                    <div class="kpi-target">&gt;92%</div>
+                    <div class="kpi-name">OPD Slot Utilization</div>
+                </div>
+                <div class="kpi-card reveal">
+                    <div class="kpi-current">4–6 hrs</div>
+                    <div class="kpi-arrow">→</div>
+                    <div class="kpi-target">&lt;90 min</div>
+                    <div class="kpi-name">Avg. Discharge Time</div>
+                </div>
+                <div class="kpi-card reveal">
+                    <div class="kpi-current">82–86%</div>
+                    <div class="kpi-arrow">→</div>
+                    <div class="kpi-target">&gt;95%</div>
+                    <div class="kpi-name">Collections as % Billing</div>
+                </div>
+                <div class="kpi-card reveal">
+                    <div class="kpi-current">68–74%</div>
+                    <div class="kpi-arrow">→</div>
+                    <div class="kpi-target">&gt;88%</div>
+                    <div class="kpi-name">OT Utilization Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise Trust -->
+    <section class="section trust">
+        <div class="section-container">
+            <div class="trust-container reveal">
+                <div class="trust-left">
+                    <div class="section-label">Enterprise Grade</div>
+                    <h2>Built for the Standards Hospitals Demand</h2>
+                    <p>Designed from the ground up for the Indian healthcare regulatory environment. Every layer of
+                        Reclav prioritizes data security, human oversight, and operational continuity.</p>
+                </div>
+                <div class="trust-right">
+                    <div class="trust-item-new">
+                        <div class="trust-icon-new blue">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0057FF"
+                                stroke-width="1.5">
+                                <path
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="trust-name">DPDP Act Compliant</div>
+                            <div class="trust-desc">Full compliance with the Digital Personal Data Protection Act of
+                                India</div>
+                        </div>
+                    </div>
+                    <div class="trust-item-new">
+                        <div class="trust-icon-new emerald">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981"
+                                stroke-width="1.5">
+                                <path
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="trust-name">Human-in-the-Loop</div>
+                            <div class="trust-desc">AI handles volume; your team retains control on edge cases and
+                                exceptions</div>
+                        </div>
+                    </div>
+                    <div class="trust-item-new">
+                        <div class="trust-icon-new purple">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6"
+                                stroke-width="1.5">
+                                <path
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="trust-name">Secure HIS Integrations</div>
+                            <div class="trust-desc">Encrypted, role-based access across all HIS, TPA portal, and data
+                                connections</div>
+                        </div>
+                    </div>
+                    <div class="trust-item-new">
+                        <div class="trust-icon-new amber">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="trust-name">24/7 AI Operations</div>
+                            <div class="trust-desc">No shift changes, no weekends — agents operate continuously with
+                                real-time alerts</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist CTA Section -->
+    <section class="section cta-section" id="waitlist">
+        <div class="section-container">
+            <div class="cta-block reveal">
+                <div class="cta-glow"></div>
+                <div class="cta-inner">
+                    <div class="cta-eyebrow"><span class="eyebrow-dot"></span>Private Pilot — Delhi NCR</div>
+                    <h2>Launching in Delhi NCR.<br>Private Pilot Access Opening Soon.</h2>
+                    <p>We are working with a select group of visionary hospital CFOs and revenue heads to validate the
+                        platform before a wider rollout. If you want your hospital to be part of the first cohort — this
+                        is the moment.</p>
+                    <form class="waitlist-form" onsubmit="event.preventDefault(); submitWaitlist();">
+                        <div class="wl-field-group">
+                            <div class="wl-field">
+                                <label>Work Email</label>
+                                <input type="email" placeholder="you@hospital.com" required id="emailInput">
+                            </div>
+                            <div class="wl-field">
+                                <label>Hospital Name</label>
+                                <input type="text" placeholder="Hospital or Group Name" id="hospitalInput">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary-hero full-width" id="submitBtn">
+                            <span>Request Private Pilot Access</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="form-msg" id="formMsg"></div>
+                        <div class="form-note">No commitment required. We'll reach out within 48 hours to schedule a
+                            discovery call.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo"><img src="logo2.png"></div>
+                    <p>Enterprise AI for Hospital Revenue Intelligence</p>
+                    <p class="footer-tagline">Launching in Delhi NCR · 2026</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <div class="footer-col-head">Legal</div>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-col-head">Contact</div>
+                        <a href="mailto:">founder@______.com</a>
+                        <a href="mailto:">pilots@______.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Reclav Technologies Pvt. Ltd. · Confidential & Proprietary</p>
+                <p>All revenue figures are modeled estimates based on industry benchmarks. Actual results depend on
+                    hospital-specific data.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

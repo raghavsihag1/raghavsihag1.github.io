@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Reclav</title>
+    <meta name="description" content="Reclav's terms of service governing the use of our AI hospital revenue intelligence platform.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Legal page overrides */
+        .legal-hero {
+            padding: 140px 2rem 5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .legal-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--emerald);
+            background: var(--emerald-muted);
+            border: 1px solid rgba(13,191,126,0.25);
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        .legal-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .legal-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-3);
+            margin-top: 0.5rem;
+        }
+
+        .legal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .legal-divider {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-3);
+        }
+
+        /* Article content */
+        .legal-body {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 8rem;
+        }
+
+        .legal-toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem 2rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .toc-title {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-3);
+            margin-bottom: 1rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .toc-list li a {
+            font-size: 0.875rem;
+            color: var(--text-2);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: color 0.2s;
+        }
+
+        .toc-list li a:hover { color: var(--emerald); }
+
+        .toc-num {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-3);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.1rem 0.4rem;
+            min-width: 28px;
+            text-align: center;
+        }
+
+        .legal-section {
+            margin-bottom: 3.5rem;
+            scroll-margin-top: 100px;
+        }
+
+        .legal-section-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-1);
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .legal-section-num {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--emerald);
+            background: var(--emerald-muted);
+            border: 1px solid rgba(13,191,126,0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            letter-spacing: 0.06em;
+        }
+
+        .legal-section p {
+            font-size: 0.95rem;
+            color: var(--text-2);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .legal-section ul {
+            list-style: none;
+            margin: 0.5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .legal-section ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-2);
+            line-height: 1.6;
+        }
+
+        .legal-section ul li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--emerald);
+            flex-shrink: 0;
+            margin-top: 0.55rem;
+        }
+
+        .legal-section a {
+            color: var(--emerald);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .legal-section a:hover { opacity: 0.75; }
+
+        .legal-highlight {
+            background: var(--emerald-muted);
+            border: 1px solid rgba(13,191,126,0.2);
+            border-left: 3px solid var(--emerald);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            font-size: 0.9rem;
+            color: var(--text-2);
+            line-height: 1.7;
+        }
+
+        .legal-separator {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+            margin: 3rem 0;
+        }
+
+        /* Contact card */
+        .legal-contact-card {
+            background: linear-gradient(135deg, rgba(31,111,235,0.08), rgba(13,191,126,0.06));
+            border: 1px solid rgba(13,191,126,0.25);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--emerald-muted);
+            border: 1px solid rgba(13,191,126,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-card-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-1);
+            margin-bottom: 0.35rem;
+        }
+
+        .contact-card-text {
+            font-size: 0.85rem;
+            color: var(--text-2);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .legal-hero  { padding: 120px 1.5rem 3rem; }
+            .legal-body  { padding: 0 1.5rem 5rem; }
+            .legal-toc   { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ambient Background -->
+<div class="ambient-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="noise-overlay"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo" style="text-decoration:none;">Reclav<span class="dot">.</span></a>
+        <div class="nav-actions">
+            <span class="status-badge"><span class="pulse"></span>Private Pilot</span>
+            <a href="index.html#waitlist" class="btn-nav">Request Access</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<div class="legal-hero">
+    <div class="legal-eyebrow">Legal</div>
+    <h1>Terms of Service</h1>
+    <p style="color:var(--text-2); font-size:1.05rem; line-height:1.7; margin-top:0.75rem;">The rules and operational guidelines governing access to the Reclav AI platform during its private pilot phase.</p>
+    <div class="legal-meta">
+        <span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Last Updated: October 2026
+        </span>
+        <div class="legal-divider"></div>
+        <span>Effective: October 2026</span>
+    </div>
+</div>
+
+<!-- Article -->
+<div class="legal-body">
+
+    <!-- Table of Contents -->
+    <div class="legal-toc">
+        <div class="toc-title">Contents</div>
+        <ul class="toc-list">
+            <li><a href="#s1"><span class="toc-num">01</span> Introduction & Agreement</a></li>
+            <li><a href="#s2"><span class="toc-num">02</span> Private Pilot Structure</a></li>
+            <li><a href="#s3"><span class="toc-num">03</span> Provision of Services</a></li>
+            <li><a href="#s4"><span class="toc-num">04</span> Hospital Obligations</a></li>
+            <li><a href="#s5"><span class="toc-num">05</span> Data & IP Rights</a></li>
+            <li><a href="#s6"><span class="toc-num">06</span> Liability & Disclaimers</a></li>
+            <li><a href="#s7"><span class="toc-num">07</span> Termination</a></li>
+        </ul>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="legal-section" id="s1">
+        <div class="legal-section-title"><span class="legal-section-num">01</span> Introduction & Agreement</div>
+        <p>These Terms of Service ("Terms") govern your use of the website at reclav.com and the Reclav enterprise platform (collectively, the "Services"). By accessing the website, joining our waitlist, or participating in our private pilot, you agree to be bound by these Terms.</p>
+        <p>If you are accepting these Terms on behalf of a hospital, clinic, or corporate entity, you represent that you have the authority to bind that entity to these Terms.</p>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 2 -->
+    <div class="legal-section" id="s2">
+        <div class="legal-section-title"><span class="legal-section-num">02</span> Private Pilot Structure</div>
+        <p>Reclav is currently operating in a closed "Private Pilot" phase. Access is granted exclusively by invitation to select hospital partners in the Delhi NCR region.</p>
+        <ul>
+            <li>Joining the waitlist does not guarantee selection for the pilot program.</li>
+            <li>Pilot participation is governed by a separate, signed Master Services Agreement (MSA) and Non-Disclosure Agreement (NDA).</li>
+            <li>During the pilot phase, features, performance, and integrations are subject to rapid iteration and change without prior notice.</li>
+        </ul>
+        <div class="legal-highlight">
+            In the event of a conflict between these Terms and a signed MSA, the terms of the MSA shall prevail for pilot participants.
+        </div>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 3 -->
+    <div class="legal-section" id="s3">
+        <div class="legal-section-title"><span class="legal-section-num">03</span> Provision of Services</div>
+        <p>Subject to these Terms and any applicable MSA, Reclav grants you a non-exclusive, non-transferable, revocable license to access and use the platform for your internal hospital operations.</p>
+        <p>You agree not to:</p>
+        <ul>
+            <li>Reverse engineer, decompile, or attempt to derive the source code or machine learning models of the Reclav platform.</li>
+            <li>Use the platform to build a competitive product or service.</li>
+            <li>Share access credentials with unauthorized third parties.</li>
+            <li>Use the platform for any unlawful purpose or in violation of Indian healthcare regulations.</li>
+        </ul>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 4 -->
+    <div class="legal-section" id="s4">
+        <div class="legal-section-title"><span class="legal-section-num">04</span> Hospital Obligations</div>
+        <p>To enable Reclav's AI agents to operate effectively, pilot partners must:</p>
+        <ul>
+            <li>Provide secure, authorized read-only or scoped read-write access to required HIS modules and TPA portals.</li>
+            <li>Ensure that all data provided to Reclav complies with applicable patient consent requirements under the DPDP Act and clinical establishment rules.</li>
+            <li>Maintain a "Human-in-the-Loop" escalation contact to review edge-case flags generated by the agents.</li>
+        </ul>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 5 -->
+    <div class="legal-section" id="s5">
+        <div class="legal-section-title"><span class="legal-section-num">05</span> Data & IP Rights</div>
+        <p><strong>Your Data:</strong> You retain all right, title, and interest in your hospital's operational and clinical data. You grant Reclav a license to process this data solely to provide the Services.</p>
+        <p><strong>Reclav IP:</strong> We retain all right, title, and interest in the Reclav platform, its underlying AI models, algorithms, dashboards, and any improvements or aggregated insights derived from system usage.</p>
+        <div class="legal-highlight">
+            Reclav will not use identifiable patient data to train cross-client machine learning models. System improvements are derived strictly from anonymized, aggregated workflow patterns.
+        </div>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 6 -->
+    <div class="legal-section" id="s6">
+        <div class="legal-section-title"><span class="legal-section-num">06</span> Liability & Disclaimers</div>
+        <p><strong>No Medical Advice:</strong> Reclav is an operational and financial intelligence tool. It does not provide medical advice, diagnosis, or clinical recommendations. All clinical decisions remain the sole responsibility of licensed medical professionals.</p>
+        <p><strong>"As-Is" Pilot Service:</strong> During the private pilot phase, the services are provided "as is" without warranty of any kind. Reclav disclaims all implied warranties of merchantability and fitness for a particular purpose.</p>
+        <p><strong>Limitation of Liability:</strong> To the maximum extent permitted by Indian law, Reclav shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of revenue, arising from the use of the platform.</p>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 7 -->
+    <div class="legal-section" id="s7">
+        <div class="legal-section-title"><span class="legal-section-num">07</span> Termination</div>
+        <p>We reserve the right to suspend or terminate your access to the waitlist or the platform at our discretion, without notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties, or for any other reason.</p>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Contact -->
+    <div class="legal-contact-card">
+        <div class="contact-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div>
+            <div class="contact-card-title">Legal Operations · Reclav Technologies</div>
+            <div class="contact-card-text">
+                For questions regarding these Terms, please contact us at:<br>
+                <a href="mailto:legal@reclav.com">legal@reclav.com</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="text-decoration:none;">Reclav<span class="dot">.</span></a>
+                <p>Enterprise AI for Hospital Revenue Intelligence</p>
+                <p class="footer-tagline">Launching in Delhi NCR · 2026</p>
+            </div>
+            <div class="footer-links-group">
+                <div class="footer-col">
+                    <div class="footer-col-head">Legal</div>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-head">Contact</div>
+                    <a href="mailto:founders@reclav.com">founders@reclav.com</a>
+                    <a href="mailto:pilots@reclav.com">pilots@reclav.com</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-head">Platform</div>
+                    <a href="index.html#agents">AI Agents</a>
+                    <a href="index.html#waitlist">Request Access</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <p>&copy; 2026 Reclav Technologies Pvt. Ltd. · Confidential & Proprietary</p>
+            <p>All revenue figures are modeled estimates. Actual results depend on hospital-specific data.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Reclav</title>
+    <meta name="description" content="Reclav's privacy policy — how we collect, use, and protect your data under the DPDP Act of India.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Legal page overrides */
+        .legal-hero {
+            padding: 140px 2rem 5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .legal-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue-bright);
+            background: var(--blue-muted);
+            border: 1px solid rgba(31,111,235,0.25);
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        .legal-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .legal-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-3);
+            margin-top: 0.5rem;
+        }
+
+        .legal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .legal-divider {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-3);
+        }
+
+        /* Article content */
+        .legal-body {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 8rem;
+        }
+
+        .legal-toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem 2rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .toc-title {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-3);
+            margin-bottom: 1rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .toc-list li a {
+            font-size: 0.875rem;
+            color: var(--text-2);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: color 0.2s;
+        }
+
+        .toc-list li a:hover { color: var(--blue-bright); }
+
+        .toc-num {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-3);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.1rem 0.4rem;
+            min-width: 28px;
+            text-align: center;
+        }
+
+        .legal-section {
+            margin-bottom: 3.5rem;
+            scroll-margin-top: 100px;
+        }
+
+        .legal-section-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-1);
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .legal-section-num {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--blue-bright);
+            background: var(--blue-muted);
+            border: 1px solid rgba(31,111,235,0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            letter-spacing: 0.06em;
+        }
+
+        .legal-section p {
+            font-size: 0.95rem;
+            color: var(--text-2);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .legal-section ul {
+            list-style: none;
+            margin: 0.5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .legal-section ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-2);
+            line-height: 1.6;
+        }
+
+        .legal-section ul li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--blue-bright);
+            flex-shrink: 0;
+            margin-top: 0.55rem;
+        }
+
+        .legal-section a {
+            color: var(--emerald);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .legal-section a:hover { opacity: 0.75; }
+
+        .legal-highlight {
+            background: var(--blue-muted);
+            border: 1px solid rgba(31,111,235,0.2);
+            border-left: 3px solid var(--blue);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            font-size: 0.9rem;
+            color: var(--text-2);
+            line-height: 1.7;
+        }
+
+        .legal-separator {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+            margin: 3rem 0;
+        }
+
+        /* Contact card */
+        .legal-contact-card {
+            background: linear-gradient(135deg, rgba(31,111,235,0.08), rgba(13,191,126,0.06));
+            border: 1px solid rgba(31,111,235,0.25);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--blue-muted);
+            border: 1px solid rgba(31,111,235,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-card-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-1);
+            margin-bottom: 0.35rem;
+        }
+
+        .contact-card-text {
+            font-size: 0.85rem;
+            color: var(--text-2);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .legal-hero  { padding: 120px 1.5rem 3rem; }
+            .legal-body  { padding: 0 1.5rem 5rem; }
+            .legal-toc   { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ambient Background -->
+<div class="ambient-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="noise-overlay"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo" style="text-decoration:none;">Reclav<span class="dot">.</span></a>
+        <div class="nav-actions">
+            <span class="status-badge"><span class="pulse"></span>Private Pilot</span>
+            <a href="index.html#waitlist" class="btn-nav">Request Access</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<div class="legal-hero">
+    <div class="legal-eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p style="color:var(--text-2); font-size:1.05rem; line-height:1.7; margin-top:0.75rem;">How Reclav collects, uses, and protects your information — built for the standards Indian healthcare enterprises demand.</p>
+    <div class="legal-meta">
+        <span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Last Updated: October 2026
+        </span>
+        <div class="legal-divider"></div>
+        <span>Effective: October 2026</span>
+    </div>
+</div>
+
+<!-- Article -->
+<div class="legal-body">
+
+    <!-- Table of Contents -->
+    <div class="legal-toc">
+        <div class="toc-title">Contents</div>
+        <ul class="toc-list">
+            <li><a href="#s1"><span class="toc-num">01</span> Overview & Scope</a></li>
+            <li><a href="#s2"><span class="toc-num">02</span> Data We Collect</a></li>
+            <li><a href="#s3"><span class="toc-num">03</span> DPDP Act Compliance</a></li>
+            <li><a href="#s4"><span class="toc-num">04</span> How We Use the Data</a></li>
+            <li><a href="#s5"><span class="toc-num">05</span> Data Sharing & Disclosure</a></li>
+            <li><a href="#s6"><span class="toc-num">06</span> Data Security</a></li>
+            <li><a href="#s7"><span class="toc-num">07</span> Data Retention</a></li>
+            <li><a href="#s8"><span class="toc-num">08</span> Your Rights</a></li>
+            <li><a href="#s9"><span class="toc-num">09</span> Contact & DPO</a></li>
+        </ul>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="legal-section" id="s1">
+        <div class="legal-section-title"><span class="legal-section-num">01</span> Overview & Scope</div>
+        <p>Reclav Technologies Pvt. Ltd. ("Reclav", "we", "our", or "us") operates an enterprise AI-powered hospital revenue intelligence platform. This Privacy Policy describes how we collect, use, process, disclose, and safeguard information when hospital clients and their authorized personnel access our platform.</p>
+        <p>This policy applies to all data processed through our platform, our website at reclav.com, and any related services. By using our services, you agree to the practices described herein.</p>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 2 -->
+    <div class="legal-section" id="s2">
+        <div class="legal-section-title"><span class="legal-section-num">02</span> Data We Collect</div>
+        <p>As a B2B enterprise platform, we process two distinct categories of data:</p>
+        <ul>
+            <li><strong>Client Account Data:</strong> Business contact details, names, email addresses, and billing information of hospital administrators and authorized users who manage accounts.</li>
+            <li><strong>Operational Data:</strong> Data provided by hospital clients to power our AI agents — including anonymized or pseudonymized billing records, insurance claim histories, OPD scheduling data, and operational metrics. We process this strictly as instructed by our hospital clients.</li>
+            <li><strong>Platform Usage Data:</strong> Logs of how users interact with our command center dashboard, for the purpose of improving system performance and security.</li>
+            <li><strong>Waitlist Data:</strong> Email addresses and hospital names submitted via our early-access waitlist, used solely to communicate about pilot access.</li>
+        </ul>
+        <div class="legal-highlight">
+            We do not collect, store, or process individual patient personally identifiable information (PII) directly. All clinical data processed by our agents is handled in pseudonymized or de-identified form under the data governance framework of our hospital clients.
+        </div>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 3 -->
+    <div class="legal-section" id="s3">
+        <div class="legal-section-title"><span class="legal-section-num">03</span> DPDP Act Compliance</div>
+        <p>Reclav is designed from the ground up to comply with the <strong>Digital Personal Data Protection (DPDP) Act, 2023</strong> of India. Our architecture respects the distinction between Data Fiduciaries (our hospital clients) and Data Processors (Reclav).</p>
+        <ul>
+            <li>We act as a <strong>Data Processor</strong> for all patient-adjacent data provided by hospital clients.</li>
+            <li>Processing is conducted strictly under a written data processing agreement with each client.</li>
+            <li>We maintain Records of Processing Activities (RoPA) in compliance with applicable regulations.</li>
+            <li>We support our hospital clients in fulfilling their obligations as Data Fiduciaries under the DPDP Act.</li>
+        </ul>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 4 -->
+    <div class="legal-section" id="s4">
+        <div class="legal-section-title"><span class="legal-section-num">04</span> How We Use the Data</div>
+        <p>We use the data we process exclusively for the following purposes:</p>
+        <ul>
+            <li>To provide, operate, maintain, and improve our AI revenue intelligence agents.</li>
+            <li>To identify revenue leakage patterns and trigger automated recovery workflows on behalf of clients.</li>
+            <li>To improve the accuracy and performance of our machine learning models, using only aggregated and de-identified signals — never individual patient records.</li>
+            <li>To generate reports and dashboards within the Reclav Command Center for authorized hospital personnel.</li>
+            <li>To communicate with waitlist registrants about platform availability and pilot program updates.</li>
+            <li>To comply with applicable legal and regulatory obligations.</li>
+        </ul>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 5 -->
+    <div class="legal-section" id="s5">
+        <div class="legal-section-title"><span class="legal-section-num">05</span> Data Sharing & Disclosure</div>
+        <p>We do not sell, rent, or trade your data. We may share information in the following limited circumstances:</p>
+        <ul>
+            <li><strong>Service Providers:</strong> Trusted infrastructure partners (cloud hosting, monitoring) who are contractually bound to protect data and cannot use it for independent purposes.</li>
+            <li><strong>Legal Requirements:</strong> Where disclosure is required by Indian law, a court order, or a lawful government authority.</li>
+            <li><strong>Business Transfers:</strong> In the event of a merger or acquisition, data may be transferred subject to equivalent privacy protections.</li>
+        </ul>
+        <p>All third-party service providers are vetted for security compliance and operate under data processing agreements consistent with DPDP Act requirements.</p>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 6 -->
+    <div class="legal-section" id="s6">
+        <div class="legal-section-title"><span class="legal-section-num">06</span> Data Security</div>
+        <p>Security is foundational to Reclav's architecture, not an afterthought. We employ:</p>
+        <ul>
+            <li>AES-256 encryption for all data at rest and TLS 1.3 for all data in transit.</li>
+            <li>Role-based access control (RBAC) ensuring staff can only access data necessary for their function.</li>
+            <li>Secure, audited integration protocols for HIS and TPA portal connections.</li>
+            <li>Continuous human-in-the-loop monitoring for anomalous access patterns.</li>
+            <li>Regular penetration testing and third-party security audits.</li>
+        </ul>
+        <div class="legal-highlight">
+            In the event of a data security incident, we will notify affected hospital clients within 72 hours of becoming aware, in accordance with applicable notification requirements under the DPDP Act.
+        </div>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 7 -->
+    <div class="legal-section" id="s7">
+        <div class="legal-section-title"><span class="legal-section-num">07</span> Data Retention</div>
+        <p>We retain Processed Data only for as long as necessary to provide services under the active client agreement, or as required by applicable Indian law. Our standard retention schedule is:</p>
+        <ul>
+            <li>Active client operational data: Retained for the duration of the contract plus 12 months for audit purposes.</li>
+            <li>Waitlist contact data: Retained until the recipient opts out or the program concludes.</li>
+            <li>Platform usage logs: Retained for 90 days for security and performance monitoring.</li>
+        </ul>
+        <p>Upon contract termination, all client operational data is securely deleted or returned in a portable format within 30 days of the client's written request.</p>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 8 -->
+    <div class="legal-section" id="s8">
+        <div class="legal-section-title"><span class="legal-section-num">08</span> Your Rights</div>
+        <p>Under the DPDP Act and applicable law, authorized representatives of our hospital clients have the right to:</p>
+        <ul>
+            <li>Access information about what data we hold on behalf of their organization.</li>
+            <li>Request correction of inaccurate client account information.</li>
+            <li>Request deletion of account data upon contract termination.</li>
+            <li>Receive a portable copy of data in a machine-readable format.</li>
+            <li>Withdraw consent for processing of non-essential data communications.</li>
+        </ul>
+        <p>To exercise any of these rights, contact our Data Protection Officer using the details below.</p>
+    </div>
+
+    <div class="legal-separator"></div>
+
+    <!-- Section 9 -->
+    <div class="legal-section" id="s9">
+        <div class="legal-section-title"><span class="legal-section-num">09</span> Contact & DPO</div>
+        <p>For privacy-related inquiries, to contact our Data Protection Officer, or to exercise your rights, please reach us at:</p>
+        <div class="legal-contact-card">
+            <div class="contact-card-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F6FEB" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+                <div class="contact-card-title">Data Protection Officer · Reclav Technologies</div>
+                <div class="contact-card-text">
+                    Email: <a href="mailto:privacy@reclav.com">privacy@reclav.com</a><br>
+                    General: <a href="mailto:founders@reclav.com">founders@reclav.com</a><br>
+                    We aim to respond within 5 business days.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="text-decoration:none;">Reclav<span class="dot">.</span></a>
+                <p>Enterprise AI for Hospital Revenue Intelligence</p>
+                <p class="footer-tagline">Launching in Delhi NCR · 2026</p>
+            </div>
+            <div class="footer-links-group">
+                <div class="footer-col">
+                    <div class="footer-col-head">Legal</div>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-head">Contact</div>
+                    <a href="mailto:founders@reclav.com">founders@reclav.com</a>
+                    <a href="mailto:pilots@reclav.com">pilots@reclav.com</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-head">Platform</div>
+                    <a href="index.html#agents">AI Agents</a>
+                    <a href="index.html#waitlist">Request Access</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <p>&copy; 2026 Reclav Technologies Pvt. Ltd. · Confidential & Proprietary</p>
+            <p>All revenue figures are modeled estimates. Actual results depend on hospital-specific data.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
