@@ -1661,49 +1661,7 @@
     // ==================== CHECK IF ALREADY BIRTHDAY ====================
     if (Date.now() >= BDAY_MS) { unlocked = true; onUnlock(); }
 
-    // ==================== DEV PREVIEW MODE ====================
-    // Open index.html?preview  OR press P  to bypass the countdown
-    function triggerPreview() {
-      if (mainP.classList.contains('show')) return; // already inside
-      unlocked = true;
-      onUnlock();
-      // Small delay so onUnlock can run, then auto-click
-      setTimeout(() => unlockBtn.click(), 700);
-    }
 
-    // URL param: ?preview
-    if (new URLSearchParams(location.search).has('preview')) {
-      triggerPreview();
-    }
-
-    // Keyboard shortcut: press P
-    document.addEventListener('keydown', e => {
-      if (e.key === 'p' || e.key === 'P') {
-        if (!mainP.classList.contains('show')) triggerPreview();
-      }
-    });
-
-    // Floating dev button on intro screen
-    (function () {
-      const devBtn = document.createElement('button');
-      devBtn.textContent = '👁 Preview inside';
-      devBtn.title = 'Developer preview — skips the countdown';
-      devBtn.style.cssText = `
-    position:fixed; bottom:1.4rem; right:1.4rem; z-index:9999;
-    font-family:'Quicksand',sans-serif; font-size:.78rem; font-weight:600;
-    padding:.5rem 1rem; border-radius:100px;
-    background:rgba(90,158,143,.15); color:#4a7c6a;
-    border:1.5px dashed #a8d5c2; cursor:pointer;
-    backdrop-filter:blur(8px); letter-spacing:.04em;
-    transition:all .2s ease;
-  `;
-      devBtn.addEventListener('mouseenter', () => devBtn.style.background = 'rgba(90,158,143,.3)');
-      devBtn.addEventListener('mouseleave', () => devBtn.style.background = 'rgba(90,158,143,.15)');
-      devBtn.addEventListener('click', () => { devBtn.remove(); triggerPreview(); });
-      // Hide once main page is shown
-      mainP.addEventListener('transitionend', () => devBtn.remove(), { once: true });
-      document.body.appendChild(devBtn);
-    })();
   </script>
 </body>
 
